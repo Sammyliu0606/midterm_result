@@ -330,15 +330,23 @@ def share(votes: pd.Series, total) -> pd.Series:
     return (votes / total * 100).round(2) if total else pd.Series([None] * len(votes), index=votes.index)
 
 
+def governor_name(ticket: str) -> str:
+    """'Wes Moore and Aruna Miller' -> 'Wes Moore'. Rows without a running mate
+    (e.g. 'Other Write-Ins') are returned unchanged."""
+    return clean(re.split(r"\s+and\s+", ticket, maxsplit=1)[0])
+
+
 def build_governor(fetch: Fetcher, url: str):
     soup = fetch.soup(url)
     meta = page_meta(soup)
     state = parse_statewide_candidates(soup)
+    state.insert(1, "governor", state["candidate"].map(governor_name))
     state["pct"] = share(state["votes"], state["votes"].sum())
     state = state.sort_values("votes", ascending=False)
 
     county = parse_county_breakdown(fetch.soup(county_breakdown_url(soup, url)))
     county = county.rename(columns={"choice": "candidate"})
+    county.insert(county.columns.get_loc("candidate") + 1, "governor", county["candidate"].map(governor_name))
     county["county_total"] = county.groupby("fips")["votes"].transform("sum")
     county["pct"] = (county["votes"] / county["county_total"] * 100).round(2)
 
@@ -395,13 +403,15 @@ def party_columns(county: pd.DataFrame, party: str, prefix: str) -> pd.DataFrame
     sub = county[(county["party"] == party) & (~county["write_in"])]
     if sub["candidate"].nunique() != 1:
         raise ScrapeError(f"Expected exactly one {party} governor candidate, found {sub['candidate'].unique()}")
-    return sub[["fips", "candidate", "votes", "pct"]].rename(
-        columns={"candidate": f"{prefix}_candidate", "votes": f"{prefix}_votes", "pct": f"{prefix}_pct"})
+    sub = sub.assign(governor=sub["candidate"].map(governor_name))
+    return sub[["fips", "governor", "candidate", "votes", "pct"]].rename(
+        columns={"governor": f"{prefix}_governor", "candidate": f"{prefix}_candidate",
+                 "votes": f"{prefix}_votes", "pct": f"{prefix}_pct"})
 
 
 def flourish_gov_files(state, county, meta):
-    bar = state[["candidate", "party", "votes", "pct"]].copy()
-    bar["label"] = bar.apply(lambda r: f"{r['candidate']} ({r['party']})" if r["party"] else r["candidate"], axis=1)
+    bar = state[["governor", "candidate", "party", "votes", "pct"]].copy()
+    bar["label"] = bar.apply(lambda r: f"{r['governor']} ({r['party']})" if r["party"] else r["governor"], axis=1)
 
     base = county.groupby("fips", as_index=False)["votes"].sum().rename(columns={"votes": "total_votes"})
     m = (COUNTIES[["fips", "county", "county_full"]]
