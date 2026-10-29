@@ -1,0 +1,3 @@
+question,response,response_label,early_voting,election_day,mail_in,provisional,votes,pct_sbe,pct,last_refreshed,precincts_reported,precincts_total
+1,For,For the Constitutional Amendment,260482,666735,362680,51055,1340952,74.99,74.99,12/07/2022 03:05:50 PM,2074,2074
+1,Against,Against the Constitutional Amendment,85422,260473,87233,14124,447252,25.01,25.01,12/07/2022 03:05:50 PM,2074,2074

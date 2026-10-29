@@ -1,0 +1,8 @@
+candidate,party,write_in,early_voting,election_day,mail_in,provisional,votes,pct_sbe,pct,last_refreshed,precincts_reported,precincts_total
+Wes Moore and Aruna Miller,Democratic,False,245046,572909,419956,56033,1293944,64.53,64.53,12/07/2022 03:05:50 PM,2074,2074
+Dan Cox and Gordana Schifanelli,Republican,False,123289,426603,77817,16291,644000,32.12,32.12,12/07/2022 03:05:50 PM,2074,2074
+David Lashar and Christiana Logansmith,Libertarian,False,4486,17466,6969,1180,30101,1.5,1.5,12/07/2022 03:05:50 PM,2074,2074
+David Harding and Cathy White,Working Class Party,False,2706,10396,3263,789,17154,0.86,0.86,12/07/2022 03:05:50 PM,2074,2074
+Nancy Wallace and Patrick Elder,Green,False,2192,7969,3628,791,14580,0.73,0.73,12/07/2022 03:05:50 PM,2074,2074
+Other Write-Ins,,True,750,2398,1520,180,4848,0.24,0.24,12/07/2022 03:05:50 PM,2074,2074
+Kyle Sefcik and Katie Lee,Unaffiliated,True,82,411,85,18,596,0.03,0.03,12/07/2022 03:05:50 PM,2074,2074
