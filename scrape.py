@@ -452,6 +452,15 @@ def flourish_gov_files(state, county, meta):
     m["other_pct"] = (100 - m["dem_pct"] - m["rep_pct"]).round(2)
     m["margin"] = (m["dem_pct"] - m["rep_pct"]).round(2)
     m["leader"] = m["margin"].apply(lambda x: "Dem" if x > 0 else ("Rep" if x < 0 else "Tied"))
+    fmt_pct = lambda p: f"{p:.{PCT_DISPLAY_DECIMALS}f}%" if pd.notna(p) else ""
+    fmt_int = lambda v: f"{int(v):,}" if pd.notna(v) else ""
+    for side in ("dem", "rep"):
+        m[f"{side}_votes_display"] = m[f"{side}_votes"].apply(fmt_int)
+        m[f"{side}_pct_display"] = m[f"{side}_pct"].apply(fmt_pct)
+    m["margin_display"] = m.apply(
+        lambda r: "Tied" if r["margin"] == 0 else
+        f"{r['dem_governor'] if r['margin'] > 0 else r['rep_governor']} +{abs(r['margin']):.{PCT_DISPLAY_DECIMALS}f}",
+        axis=1)
     return add_meta(bar, meta), add_meta(m, meta)
 
 
