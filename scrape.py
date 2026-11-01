@@ -48,6 +48,9 @@ REP_PARTY = "Republican"
 USER_AGENT = "MD-election-results-scraper (newsroom data desk; contact: your-email@example.com)"
 REQUEST_PAUSE_SEC = 0.5
 N_JURISDICTIONS = 24
+GOV_MAIN_VIEW_TOP_N = 3
+GOV_MAIN_VIEW_LABEL = "Leading candidates"
+GOV_ALL_VIEW_LABEL = "All candidates"
 
 HERE = Path(__file__).resolve().parent
 COUNTIES = pd.read_csv(HERE / "reference" / "md_counties.csv", dtype={"fips": str})
@@ -409,9 +412,26 @@ def party_columns(county: pd.DataFrame, party: str, prefix: str) -> pd.DataFrame
                  "votes": f"{prefix}_votes", "pct": f"{prefix}_pct"})
 
 
-def flourish_gov_files(state, county, meta):
+def gov_bar_table(state: pd.DataFrame) -> pd.DataFrame:
     bar = state[["governor", "candidate", "party", "votes", "pct"]].copy()
-    bar["label"] = bar.apply(lambda r: f"{r['governor']} ({r['party']})" if r["party"] else r["governor"], axis=1)
+    bar["party"] = bar["party"].fillna("").replace("", "Write-in")
+    bar = bar.sort_values("votes", ascending=False).reset_index(drop=True)
+    bar["label"] = bar.apply(lambda r: r["governor"] if r["party"] == "Write-in" else f"{r['governor']} ({r['party']})", axis=1)
+    bar["total_votes"] = bar["votes"].sum()
+
+    # one pct column per party (in vote order) so Flourish can colour bars by party
+    parties = list(dict.fromkeys(bar["party"]))
+    for p in parties:
+        bar[p] = bar["pct"].where(bar["party"] == p)
+
+    main = bar.head(GOV_MAIN_VIEW_TOP_N).assign(view=GOV_MAIN_VIEW_LABEL)
+    full = bar.assign(view=GOV_ALL_VIEW_LABEL)
+    cols = ["view", "governor", "party", "label", "votes", "pct", "total_votes", "candidate"] + parties
+    return pd.concat([main, full], ignore_index=True)[cols]
+
+
+def flourish_gov_files(state, county, meta):
+    bar = gov_bar_table(state)
 
     base = county.groupby("fips", as_index=False)["votes"].sum().rename(columns={"votes": "total_votes"})
     m = (COUNTIES[["fips", "county", "county_full"]]
