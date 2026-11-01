@@ -51,6 +51,10 @@ N_JURISDICTIONS = 24
 GOV_MAIN_VIEW_TOP_N = 3
 GOV_MAIN_VIEW_LABEL = "Leading candidates"
 GOV_ALL_VIEW_LABEL = "All candidates"
+# Popup text colors for the governor map: use the END colors of the Flourish diverging palette
+DEM_COLOR = "#2166ac"
+REP_COLOR = "#b2182b"
+TIE_COLOR = "#555555"
 
 HERE = Path(__file__).resolve().parent
 COUNTIES = pd.read_csv(HERE / "reference" / "md_counties.csv", dtype={"fips": str})
@@ -461,6 +465,8 @@ def flourish_gov_files(state, county, meta):
         lambda r: "Tied" if r["margin"] == 0 else
         f"{r['dem_governor'] if r['margin'] > 0 else r['rep_governor']} +{abs(r['margin']):.{PCT_DISPLAY_DECIMALS}f}",
         axis=1)
+    m["margin_color"] = m["margin"].apply(
+        lambda x: DEM_COLOR if x > 0 else (REP_COLOR if x < 0 else TIE_COLOR))
     return add_meta(bar, meta), add_meta(m, meta)
 
 
