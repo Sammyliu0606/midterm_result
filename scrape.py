@@ -390,7 +390,7 @@ def build_house(fetch: Fetcher, districts: dict) -> pd.DataFrame:
 
 
 def flourish_question_files(n, state, county, meta):
-    bar = state[["response", "votes", "pct"]].copy()
+    bar = add_display_columns(state[["response", "votes", "pct"]])
     wide = county.pivot_table(index=["fips", "county"], columns="response", values=["votes", "pct"], aggfunc="first")
     wide.columns = [f"{resp.lower()}_{val}" for val, resp in wide.columns]
     wide = wide.reset_index().merge(COUNTIES[["fips", "county_full"]], on="fips")
@@ -412,12 +412,23 @@ def party_columns(county: pd.DataFrame, party: str, prefix: str) -> pd.DataFrame
                  "votes": f"{prefix}_votes", "pct": f"{prefix}_pct"})
 
 
+PCT_DISPLAY_DECIMALS = 1
+
+
+def add_display_columns(df):
+    df = df.copy()
+    df["votes_display"] = df["votes"].apply(lambda v: f"{int(v):,}" if pd.notna(v) else "")
+    df["pct_display"] = df["pct"].apply(lambda p: f"{p:.{PCT_DISPLAY_DECIMALS}f}%" if pd.notna(p) else "")
+    return df
+
+
 def gov_bar_table(state: pd.DataFrame) -> pd.DataFrame:
     bar = state[["governor", "candidate", "party", "votes", "pct"]].copy()
     bar["party"] = bar["party"].fillna("").replace("", "Write-in")
     bar = bar.sort_values("votes", ascending=False).reset_index(drop=True)
     bar["label"] = bar.apply(lambda r: r["governor"] if r["party"] == "Write-in" else f"{r['governor']} ({r['party']})", axis=1)
     bar["total_votes"] = bar["votes"].sum()
+    bar = add_display_columns(bar)
 
     # one pct column per party (in vote order) so Flourish can colour bars by party
     parties = list(dict.fromkeys(bar["party"]))
@@ -426,7 +437,7 @@ def gov_bar_table(state: pd.DataFrame) -> pd.DataFrame:
 
     main = bar.head(GOV_MAIN_VIEW_TOP_N).assign(view=GOV_MAIN_VIEW_LABEL)
     full = bar.assign(view=GOV_ALL_VIEW_LABEL)
-    cols = ["view", "governor", "party", "label", "votes", "pct", "total_votes", "candidate"] + parties
+    cols = ["view", "governor", "party", "label", "votes", "pct", "votes_display", "pct_display", "total_votes", "candidate"] + parties
     return pd.concat([main, full], ignore_index=True)[cols]
 
 
