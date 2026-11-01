@@ -1,3 +1,3 @@
-response,votes,pct,last_refreshed,precincts_reported,precincts_total
-For,1684519,90.2,12/07/2022 03:05:50 PM,2074,2074
-Against,183099,9.8,12/07/2022 03:05:50 PM,2074,2074
+response,votes,pct,votes_display,pct_display,last_refreshed,precincts_reported,precincts_total
+For,1684519,90.2,"1,684,519",90.2%,12/07/2022 03:05:50 PM,2074,2074
+Against,183099,9.8,"183,099",9.8%,12/07/2022 03:05:50 PM,2074,2074
