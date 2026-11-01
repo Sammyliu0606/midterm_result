@@ -1,11 +1,11 @@
-view,governor,party,label,votes,pct,votes_display,pct_display,total_votes,candidate,Democratic,Republican,Libertarian,Working Class Party,Green,Write-in,Unaffiliated,last_refreshed,precincts_reported,precincts_total
-Leading candidates,Wes Moore,Democratic,Wes Moore (Democratic),1293944,64.53,"1,293,944",64.5%,2005223,Wes Moore and Aruna Miller,64.53,,,,,,,12/07/2022 03:05:50 PM,2074,2074
-Leading candidates,Dan Cox,Republican,Dan Cox (Republican),644000,32.12,"644,000",32.1%,2005223,Dan Cox and Gordana Schifanelli,,32.12,,,,,,12/07/2022 03:05:50 PM,2074,2074
-Leading candidates,David Lashar,Libertarian,David Lashar (Libertarian),30101,1.5,"30,101",1.5%,2005223,David Lashar and Christiana Logansmith,,,1.5,,,,,12/07/2022 03:05:50 PM,2074,2074
-All candidates,Wes Moore,Democratic,Wes Moore (Democratic),1293944,64.53,"1,293,944",64.5%,2005223,Wes Moore and Aruna Miller,64.53,,,,,,,12/07/2022 03:05:50 PM,2074,2074
-All candidates,Dan Cox,Republican,Dan Cox (Republican),644000,32.12,"644,000",32.1%,2005223,Dan Cox and Gordana Schifanelli,,32.12,,,,,,12/07/2022 03:05:50 PM,2074,2074
-All candidates,David Lashar,Libertarian,David Lashar (Libertarian),30101,1.5,"30,101",1.5%,2005223,David Lashar and Christiana Logansmith,,,1.5,,,,,12/07/2022 03:05:50 PM,2074,2074
-All candidates,David Harding,Working Class Party,David Harding (Working Class Party),17154,0.86,"17,154",0.9%,2005223,David Harding and Cathy White,,,,0.86,,,,12/07/2022 03:05:50 PM,2074,2074
-All candidates,Nancy Wallace,Green,Nancy Wallace (Green),14580,0.73,"14,580",0.7%,2005223,Nancy Wallace and Patrick Elder,,,,,0.73,,,12/07/2022 03:05:50 PM,2074,2074
-All candidates,Other Write-Ins,Write-in,Other Write-Ins,4848,0.24,"4,848",0.2%,2005223,Other Write-Ins,,,,,,0.24,,12/07/2022 03:05:50 PM,2074,2074
-All candidates,Kyle Sefcik,Unaffiliated,Kyle Sefcik (Unaffiliated),596,0.03,596,0.0%,2005223,Kyle Sefcik and Katie Lee,,,,,,,0.03,12/07/2022 03:05:50 PM,2074,2074
+view,governor,party,party_group,label,votes,pct,votes_display,pct_display,total_votes,candidate,Democratic,Republican,Other parties,last_refreshed,precincts_reported,precincts_total
+Leading candidates,Wes Moore,Democratic,Democratic,Wes Moore (Democratic),1293944,64.53,"1,293,944",64.5%,2005223,Wes Moore and Aruna Miller,64.53,,,12/07/2022 03:05:50 PM,2074,2074
+Leading candidates,Dan Cox,Republican,Republican,Dan Cox (Republican),644000,32.12,"644,000",32.1%,2005223,Dan Cox and Gordana Schifanelli,,32.12,,12/07/2022 03:05:50 PM,2074,2074
+Leading candidates,David Lashar,Libertarian,Other parties,David Lashar (Libertarian),30101,1.5,"30,101",1.5%,2005223,David Lashar and Christiana Logansmith,,,1.5,12/07/2022 03:05:50 PM,2074,2074
+All candidates,Wes Moore,Democratic,Democratic,Wes Moore (Democratic),1293944,64.53,"1,293,944",64.5%,2005223,Wes Moore and Aruna Miller,64.53,,,12/07/2022 03:05:50 PM,2074,2074
+All candidates,Dan Cox,Republican,Republican,Dan Cox (Republican),644000,32.12,"644,000",32.1%,2005223,Dan Cox and Gordana Schifanelli,,32.12,,12/07/2022 03:05:50 PM,2074,2074
+All candidates,David Lashar,Libertarian,Other parties,David Lashar (Libertarian),30101,1.5,"30,101",1.5%,2005223,David Lashar and Christiana Logansmith,,,1.5,12/07/2022 03:05:50 PM,2074,2074
+All candidates,David Harding,Working Class Party,Other parties,David Harding (Working Class Party),17154,0.86,"17,154",0.9%,2005223,David Harding and Cathy White,,,0.86,12/07/2022 03:05:50 PM,2074,2074
+All candidates,Nancy Wallace,Green,Other parties,Nancy Wallace (Green),14580,0.73,"14,580",0.7%,2005223,Nancy Wallace and Patrick Elder,,,0.73,12/07/2022 03:05:50 PM,2074,2074
+All candidates,Other Write-Ins,Write-in,Other parties,Other Write-Ins,4848,0.24,"4,848",0.2%,2005223,Other Write-Ins,,,0.24,12/07/2022 03:05:50 PM,2074,2074
+All candidates,Kyle Sefcik,Unaffiliated,Other parties,Kyle Sefcik (Unaffiliated),596,0.03,596,0.0%,2005223,Kyle Sefcik and Katie Lee,,,0.03,12/07/2022 03:05:50 PM,2074,2074

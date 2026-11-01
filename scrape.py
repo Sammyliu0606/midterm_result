@@ -49,12 +49,16 @@ USER_AGENT = "MD-election-results-scraper (newsroom data desk; contact: your-ema
 REQUEST_PAUSE_SEC = 0.5
 N_JURISDICTIONS = 24
 GOV_MAIN_VIEW_TOP_N = 3
+OTHER_PARTIES_LABEL = "Other parties"
 GOV_MAIN_VIEW_LABEL = "Leading candidates"
 GOV_ALL_VIEW_LABEL = "All candidates"
 # Popup text colors for the governor map: use the END colors of the Flourish diverging palette
 DEM_COLOR = "#2166ac"
 REP_COLOR = "#b2182b"
 TIE_COLOR = "#555555"
+# Ballot question maps: non-partisan colors (END colors of the Flourish palette)
+Q_FOR_COLOR = "#1b7837"       # green
+Q_AGAINST_COLOR = "#762a83"   # purple
 
 HERE = Path(__file__).resolve().parent
 COUNTIES = pd.read_csv(HERE / "reference" / "md_counties.csv", dtype={"fips": str})
@@ -401,8 +405,18 @@ def flourish_question_files(n, state, county, meta):
     wide["total_votes"] = wide["for_votes"].fillna(0) + wide["against_votes"].fillna(0)
     wide["margin"] = (wide["for_pct"] - wide["against_pct"]).round(2)
     wide["leader"] = wide["margin"].apply(lambda m: "For" if m > 0 else ("Against" if m < 0 else "Tied"))
+    for side in ("for", "against"):
+        wide[f"{side}_votes_display"] = wide[f"{side}_votes"].apply(lambda v: f"{int(v):,}" if pd.notna(v) else "")
+        wide[f"{side}_pct_display"] = wide[f"{side}_pct"].apply(
+            lambda p: f"{p:.{PCT_DISPLAY_DECIMALS}f}%" if pd.notna(p) else "")
+    wide["margin_display"] = wide["margin"].apply(
+        lambda x: "Tied" if x == 0 else f"{'For' if x > 0 else 'Against'} +{abs(x):.{PCT_DISPLAY_DECIMALS}f}")
+    wide["margin_color"] = wide["margin"].apply(
+        lambda x: Q_FOR_COLOR if x > 0 else (Q_AGAINST_COLOR if x < 0 else TIE_COLOR))
     wide = wide[["fips", "county", "county_full", "for_votes", "against_votes", "total_votes",
-                 "for_pct", "against_pct", "margin", "leader"]]
+                 "for_pct", "against_pct", "margin", "leader",
+                 "for_votes_display", "for_pct_display", "against_votes_display", "against_pct_display",
+                 "margin_display", "margin_color"]]
     return add_meta(bar, meta), add_meta(wide, meta)
 
 
@@ -435,13 +449,14 @@ def gov_bar_table(state: pd.DataFrame) -> pd.DataFrame:
     bar = add_display_columns(bar)
 
     # one pct column per party (in vote order) so Flourish can colour bars by party
-    parties = list(dict.fromkeys(bar["party"]))
+    bar["party_group"] = bar["party"].apply(lambda p: p if p in (DEM_PARTY, REP_PARTY) else OTHER_PARTIES_LABEL)
+    parties = [DEM_PARTY, REP_PARTY, OTHER_PARTIES_LABEL]
     for p in parties:
-        bar[p] = bar["pct"].where(bar["party"] == p)
+        bar[p] = bar["pct"].where(bar["party_group"] == p)
 
     main = bar.head(GOV_MAIN_VIEW_TOP_N).assign(view=GOV_MAIN_VIEW_LABEL)
     full = bar.assign(view=GOV_ALL_VIEW_LABEL)
-    cols = ["view", "governor", "party", "label", "votes", "pct", "votes_display", "pct_display", "total_votes", "candidate"] + parties
+    cols = ["view", "governor", "party", "party_group", "label", "votes", "pct", "votes_display", "pct_display", "total_votes", "candidate"] + parties
     return pd.concat([main, full], ignore_index=True)[cols]
 
 
