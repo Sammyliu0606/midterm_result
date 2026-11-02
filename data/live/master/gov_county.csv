@@ -1,0 +1,169 @@
+sbe_name,candidate,governor,party,write_in,votes,fips,county,county_total,pct,last_refreshed,precincts_reported,precincts_total
+Allegany,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,14145,24001,Allegany,21697,65.19,12/07/2022 03:05:50 PM,2074,2074
+Allegany,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,6796,24001,Allegany,21697,31.32,12/07/2022 03:05:50 PM,2074,2074
+Allegany,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,298,24001,Allegany,21697,1.37,12/07/2022 03:05:50 PM,2074,2074
+Allegany,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,153,24001,Allegany,21697,0.71,12/07/2022 03:05:50 PM,2074,2074
+Allegany,David Harding and Cathy White,David Harding,Working Class Party,False,286,24001,Allegany,21697,1.32,12/07/2022 03:05:50 PM,2074,2074
+Allegany,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,0,24001,Allegany,21697,0.0,12/07/2022 03:05:50 PM,2074,2074
+Anne Arundel,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,83823,24003,Anne Arundel,216023,38.8,12/07/2022 03:05:50 PM,2074,2074
+Anne Arundel,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,123929,24003,Anne Arundel,216023,57.37,12/07/2022 03:05:50 PM,2074,2074
+Anne Arundel,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,4538,24003,Anne Arundel,216023,2.1,12/07/2022 03:05:50 PM,2074,2074
+Anne Arundel,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,1324,24003,Anne Arundel,216023,0.61,12/07/2022 03:05:50 PM,2074,2074
+Anne Arundel,David Harding and Cathy White,David Harding,Working Class Party,False,1608,24003,Anne Arundel,216023,0.74,12/07/2022 03:05:50 PM,2074,2074
+Anne Arundel,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,54,24003,Anne Arundel,216023,0.02,12/07/2022 03:05:50 PM,2074,2074
+Baltimore City,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,12309,24510,Baltimore City,143867,8.56,12/07/2022 03:05:50 PM,2074,2074
+Baltimore City,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,126768,24510,Baltimore City,143867,88.11,12/07/2022 03:05:50 PM,2074,2074
+Baltimore City,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,1452,24510,Baltimore City,143867,1.01,12/07/2022 03:05:50 PM,2074,2074
+Baltimore City,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,1420,24510,Baltimore City,143867,0.99,12/07/2022 03:05:50 PM,2074,2074
+Baltimore City,David Harding and Cathy White,David Harding,Working Class Party,False,1648,24510,Baltimore City,143867,1.15,12/07/2022 03:05:50 PM,2074,2074
+Baltimore City,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,12,24510,Baltimore City,143867,0.01,12/07/2022 03:05:50 PM,2074,2074
+Baltimore County,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,88971,24005,Baltimore County,272054,32.7,12/07/2022 03:05:50 PM,2074,2074
+Baltimore County,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,172494,24005,Baltimore County,272054,63.4,12/07/2022 03:05:50 PM,2074,2074
+Baltimore County,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,4887,24005,Baltimore County,272054,1.8,12/07/2022 03:05:50 PM,2074,2074
+Baltimore County,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,2020,24005,Baltimore County,272054,0.74,12/07/2022 03:05:50 PM,2074,2074
+Baltimore County,David Harding and Cathy White,David Harding,Working Class Party,False,2790,24005,Baltimore County,272054,1.03,12/07/2022 03:05:50 PM,2074,2074
+Baltimore County,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,89,24005,Baltimore County,272054,0.03,12/07/2022 03:05:50 PM,2074,2074
+Calvert,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,19668,24009,Calvert,37577,52.34,12/07/2022 03:05:50 PM,2074,2074
+Calvert,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,16757,24009,Calvert,37577,44.59,12/07/2022 03:05:50 PM,2074,2074
+Calvert,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,601,24009,Calvert,37577,1.6,12/07/2022 03:05:50 PM,2074,2074
+Calvert,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,174,24009,Calvert,37577,0.46,12/07/2022 03:05:50 PM,2074,2074
+Calvert,David Harding and Cathy White,David Harding,Working Class Party,False,277,24009,Calvert,37577,0.74,12/07/2022 03:05:50 PM,2074,2074
+Calvert,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,18,24009,Calvert,37577,0.05,12/07/2022 03:05:50 PM,2074,2074
+Caroline,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,6869,24011,Caroline,10729,64.02,12/07/2022 03:05:50 PM,2074,2074
+Caroline,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,3447,24011,Caroline,10729,32.13,12/07/2022 03:05:50 PM,2074,2074
+Caroline,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,182,24011,Caroline,10729,1.7,12/07/2022 03:05:50 PM,2074,2074
+Caroline,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,60,24011,Caroline,10729,0.56,12/07/2022 03:05:50 PM,2074,2074
+Caroline,David Harding and Cathy White,David Harding,Working Class Party,False,145,24011,Caroline,10729,1.35,12/07/2022 03:05:50 PM,2074,2074
+Caroline,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,4,24011,Caroline,10729,0.04,12/07/2022 03:05:50 PM,2074,2074
+Carroll,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,40683,24013,Carroll,71887,56.59,12/07/2022 03:05:50 PM,2074,2074
+Carroll,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,28117,24013,Carroll,71887,39.11,12/07/2022 03:05:50 PM,2074,2074
+Carroll,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,1642,24013,Carroll,71887,2.28,12/07/2022 03:05:50 PM,2074,2074
+Carroll,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,502,24013,Carroll,71887,0.7,12/07/2022 03:05:50 PM,2074,2074
+Carroll,David Harding and Cathy White,David Harding,Working Class Party,False,626,24013,Carroll,71887,0.87,12/07/2022 03:05:50 PM,2074,2074
+Carroll,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,36,24013,Carroll,71887,0.05,12/07/2022 03:05:50 PM,2074,2074
+Cecil,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,19873,24015,Cecil,33067,60.1,12/07/2022 03:05:50 PM,2074,2074
+Cecil,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,11992,24015,Cecil,33067,36.27,12/07/2022 03:05:50 PM,2074,2074
+Cecil,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,562,24015,Cecil,33067,1.7,12/07/2022 03:05:50 PM,2074,2074
+Cecil,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,199,24015,Cecil,33067,0.6,12/07/2022 03:05:50 PM,2074,2074
+Cecil,David Harding and Cathy White,David Harding,Working Class Party,False,365,24015,Cecil,33067,1.1,12/07/2022 03:05:50 PM,2074,2074
+Cecil,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,21,24015,Cecil,33067,0.06,12/07/2022 03:05:50 PM,2074,2074
+Charles,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,15830,24017,Charles,54510,29.04,12/07/2022 03:05:50 PM,2074,2074
+Charles,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,37367,24017,Charles,54510,68.55,12/07/2022 03:05:50 PM,2074,2074
+Charles,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,459,24017,Charles,54510,0.84,12/07/2022 03:05:50 PM,2074,2074
+Charles,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,313,24017,Charles,54510,0.57,12/07/2022 03:05:50 PM,2074,2074
+Charles,David Harding and Cathy White,David Harding,Working Class Party,False,454,24017,Charles,54510,0.83,12/07/2022 03:05:50 PM,2074,2074
+Charles,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,11,24017,Charles,54510,0.02,12/07/2022 03:05:50 PM,2074,2074
+Dorchester,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,6377,24019,Dorchester,11493,55.49,12/07/2022 03:05:50 PM,2074,2074
+Dorchester,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,4715,24019,Dorchester,11493,41.02,12/07/2022 03:05:50 PM,2074,2074
+Dorchester,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,145,24019,Dorchester,11493,1.26,12/07/2022 03:05:50 PM,2074,2074
+Dorchester,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,70,24019,Dorchester,11493,0.61,12/07/2022 03:05:50 PM,2074,2074
+Dorchester,David Harding and Cathy White,David Harding,Working Class Party,False,165,24019,Dorchester,11493,1.44,12/07/2022 03:05:50 PM,2074,2074
+Dorchester,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,4,24019,Dorchester,11493,0.03,12/07/2022 03:05:50 PM,2074,2074
+Frederick,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,46040,24021,Frederick,106608,43.19,12/07/2022 03:05:50 PM,2074,2074
+Frederick,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,56992,24021,Frederick,106608,53.46,12/07/2022 03:05:50 PM,2074,2074
+Frederick,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,1856,24021,Frederick,106608,1.74,12/07/2022 03:05:50 PM,2074,2074
+Frederick,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,602,24021,Frederick,106608,0.56,12/07/2022 03:05:50 PM,2074,2074
+Frederick,David Harding and Cathy White,David Harding,Working Class Party,False,790,24021,Frederick,106608,0.74,12/07/2022 03:05:50 PM,2074,2074
+Frederick,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,67,24021,Frederick,106608,0.06,12/07/2022 03:05:50 PM,2074,2074
+Garrett,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,8381,24023,Garrett,11305,74.14,12/07/2022 03:05:50 PM,2074,2074
+Garrett,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,2507,24023,Garrett,11305,22.18,12/07/2022 03:05:50 PM,2074,2074
+Garrett,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,207,24023,Garrett,11305,1.83,12/07/2022 03:05:50 PM,2074,2074
+Garrett,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,54,24023,Garrett,11305,0.48,12/07/2022 03:05:50 PM,2074,2074
+Garrett,David Harding and Cathy White,David Harding,Working Class Party,False,141,24023,Garrett,11305,1.25,12/07/2022 03:05:50 PM,2074,2074
+Garrett,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,6,24023,Garrett,11305,0.05,12/07/2022 03:05:50 PM,2074,2074
+Harford,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,53962,24025,Harford,103346,52.21,12/07/2022 03:05:50 PM,2074,2074
+Harford,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,45222,24025,Harford,103346,43.76,12/07/2022 03:05:50 PM,2074,2074
+Harford,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,2202,24025,Harford,103346,2.13,12/07/2022 03:05:50 PM,2074,2074
+Harford,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,667,24025,Harford,103346,0.65,12/07/2022 03:05:50 PM,2074,2074
+Harford,David Harding and Cathy White,David Harding,Working Class Party,False,968,24025,Harford,103346,0.94,12/07/2022 03:05:50 PM,2074,2074
+Harford,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,10,24025,Harford,103346,0.01,12/07/2022 03:05:50 PM,2074,2074
+Howard,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,34514,24027,Howard,130291,26.49,12/07/2022 03:05:50 PM,2074,2074
+Howard,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,91031,24027,Howard,130291,69.87,12/07/2022 03:05:50 PM,2074,2074
+Howard,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,2657,24027,Howard,130291,2.04,12/07/2022 03:05:50 PM,2074,2074
+Howard,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,882,24027,Howard,130291,0.68,12/07/2022 03:05:50 PM,2074,2074
+Howard,David Harding and Cathy White,David Harding,Working Class Party,False,758,24027,Howard,130291,0.58,12/07/2022 03:05:50 PM,2074,2074
+Howard,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,51,24027,Howard,130291,0.04,12/07/2022 03:05:50 PM,2074,2074
+Kent,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,3791,24029,Kent,8463,44.79,12/07/2022 03:05:50 PM,2074,2074
+Kent,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,4394,24029,Kent,8463,51.92,12/07/2022 03:05:50 PM,2074,2074
+Kent,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,110,24029,Kent,8463,1.3,12/07/2022 03:05:50 PM,2074,2074
+Kent,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,60,24029,Kent,8463,0.71,12/07/2022 03:05:50 PM,2074,2074
+Kent,David Harding and Cathy White,David Harding,Working Class Party,False,98,24029,Kent,8463,1.16,12/07/2022 03:05:50 PM,2074,2074
+Kent,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,1,24029,Kent,8463,0.01,12/07/2022 03:05:50 PM,2074,2074
+Montgomery,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,64507,24031,Montgomery,343371,18.79,12/07/2022 03:05:50 PM,2074,2074
+Montgomery,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,269072,24031,Montgomery,343371,78.36,12/07/2022 03:05:50 PM,2074,2074
+Montgomery,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,3993,24031,Montgomery,343371,1.16,12/07/2022 03:05:50 PM,2074,2074
+Montgomery,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,2948,24031,Montgomery,343371,0.86,12/07/2022 03:05:50 PM,2074,2074
+Montgomery,David Harding and Cathy White,David Harding,Working Class Party,False,1936,24031,Montgomery,343371,0.56,12/07/2022 03:05:50 PM,2074,2074
+Montgomery,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,123,24031,Montgomery,343371,0.04,12/07/2022 03:05:50 PM,2074,2074
+Prince George's,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,20045,24033,Prince George's,240908,8.32,12/07/2022 03:05:50 PM,2074,2074
+Prince George's,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,214971,24033,Prince George's,240908,89.23,12/07/2022 03:05:50 PM,2074,2074
+Prince George's,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,1314,24033,Prince George's,240908,0.55,12/07/2022 03:05:50 PM,2074,2074
+Prince George's,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,1995,24033,Prince George's,240908,0.83,12/07/2022 03:05:50 PM,2074,2074
+Prince George's,David Harding and Cathy White,David Harding,Working Class Party,False,2194,24033,Prince George's,240908,0.91,12/07/2022 03:05:50 PM,2074,2074
+Prince George's,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,31,24033,Prince George's,240908,0.01,12/07/2022 03:05:50 PM,2074,2074
+Queen Anne's,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,13123,24035,Queen Anne's,22899,57.31,12/07/2022 03:05:50 PM,2074,2074
+Queen Anne's,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,8913,24035,Queen Anne's,22899,38.92,12/07/2022 03:05:50 PM,2074,2074
+Queen Anne's,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,437,24035,Queen Anne's,22899,1.91,12/07/2022 03:05:50 PM,2074,2074
+Queen Anne's,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,122,24035,Queen Anne's,22899,0.53,12/07/2022 03:05:50 PM,2074,2074
+Queen Anne's,David Harding and Cathy White,David Harding,Working Class Party,False,214,24035,Queen Anne's,22899,0.93,12/07/2022 03:05:50 PM,2074,2074
+Queen Anne's,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,14,24035,Queen Anne's,22899,0.06,12/07/2022 03:05:50 PM,2074,2074
+Saint Mary's,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,21150,24037,St. Mary's,37703,56.1,12/07/2022 03:05:50 PM,2074,2074
+Saint Mary's,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,15057,24037,St. Mary's,37703,39.94,12/07/2022 03:05:50 PM,2074,2074
+Saint Mary's,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,754,24037,St. Mary's,37703,2.0,12/07/2022 03:05:50 PM,2074,2074
+Saint Mary's,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,274,24037,St. Mary's,37703,0.73,12/07/2022 03:05:50 PM,2074,2074
+Saint Mary's,David Harding and Cathy White,David Harding,Working Class Party,False,378,24037,St. Mary's,37703,1.0,12/07/2022 03:05:50 PM,2074,2074
+Saint Mary's,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,6,24037,St. Mary's,37703,0.02,12/07/2022 03:05:50 PM,2074,2074
+Somerset,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,4128,24039,Somerset,6829,60.45,12/07/2022 03:05:50 PM,2074,2074
+Somerset,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,2491,24039,Somerset,6829,36.48,12/07/2022 03:05:50 PM,2074,2074
+Somerset,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,72,24039,Somerset,6829,1.05,12/07/2022 03:05:50 PM,2074,2074
+Somerset,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,47,24039,Somerset,6829,0.69,12/07/2022 03:05:50 PM,2074,2074
+Somerset,David Harding and Cathy White,David Harding,Working Class Party,False,84,24039,Somerset,6829,1.23,12/07/2022 03:05:50 PM,2074,2074
+Somerset,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,0,24039,Somerset,6829,0.0,12/07/2022 03:05:50 PM,2074,2074
+Talbot,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,7935,24041,Talbot,17646,44.97,12/07/2022 03:05:50 PM,2074,2074
+Talbot,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,9116,24041,Talbot,17646,51.66,12/07/2022 03:05:50 PM,2074,2074
+Talbot,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,326,24041,Talbot,17646,1.85,12/07/2022 03:05:50 PM,2074,2074
+Talbot,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,84,24041,Talbot,17646,0.48,12/07/2022 03:05:50 PM,2074,2074
+Talbot,David Harding and Cathy White,David Harding,Working Class Party,False,134,24041,Talbot,17646,0.76,12/07/2022 03:05:50 PM,2074,2074
+Talbot,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,6,24041,Talbot,17646,0.03,12/07/2022 03:05:50 PM,2074,2074
+Washington,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,28547,24043,Washington,48853,58.43,12/07/2022 03:05:50 PM,2074,2074
+Washington,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,18727,24043,Washington,48853,38.33,12/07/2022 03:05:50 PM,2074,2074
+Washington,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,688,24043,Washington,48853,1.41,12/07/2022 03:05:50 PM,2074,2074
+Washington,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,284,24043,Washington,48853,0.58,12/07/2022 03:05:50 PM,2074,2074
+Washington,David Harding and Cathy White,David Harding,Working Class Party,False,522,24043,Washington,48853,1.07,12/07/2022 03:05:50 PM,2074,2074
+Washington,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,21,24043,Washington,48853,0.04,12/07/2022 03:05:50 PM,2074,2074
+Wicomico,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,15362,24045,Wicomico,30296,50.71,12/07/2022 03:05:50 PM,2074,2074
+Wicomico,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,13873,24045,Wicomico,30296,45.79,12/07/2022 03:05:50 PM,2074,2074
+Wicomico,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,426,24045,Wicomico,30296,1.41,12/07/2022 03:05:50 PM,2074,2074
+Wicomico,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,196,24045,Wicomico,30296,0.65,12/07/2022 03:05:50 PM,2074,2074
+Wicomico,David Harding and Cathy White,David Harding,Working Class Party,False,392,24045,Wicomico,30296,1.29,12/07/2022 03:05:50 PM,2074,2074
+Wicomico,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,6,24045,Wicomico,30296,0.02,12/07/2022 03:05:50 PM,2074,2074
+Worcester,Dan Cox and Gordana Schifanelli,Dan Cox,Republican,False,13967,24047,Worcester,23801,58.68,12/07/2022 03:05:50 PM,2074,2074
+Worcester,Wes Moore and Aruna Miller,Wes Moore,Democratic,False,9196,24047,Worcester,23801,38.64,12/07/2022 03:05:50 PM,2074,2074
+Worcester,David Lashar and Christiana Logansmith,David Lashar,Libertarian,False,293,24047,Worcester,23801,1.23,12/07/2022 03:05:50 PM,2074,2074
+Worcester,Nancy Wallace and Patrick Elder,Nancy Wallace,Green,False,130,24047,Worcester,23801,0.55,12/07/2022 03:05:50 PM,2074,2074
+Worcester,David Harding and Cathy White,David Harding,Working Class Party,False,181,24047,Worcester,23801,0.76,12/07/2022 03:05:50 PM,2074,2074
+Worcester,Kyle Sefcik and Katie Lee,Kyle Sefcik,Unaffiliated,True,5,24047,Worcester,23801,0.02,12/07/2022 03:05:50 PM,2074,2074
+Allegany,Other Write-Ins,Other Write-Ins,,False,19,24001,Allegany,21697,0.09,12/07/2022 03:05:50 PM,2074,2074
+Anne Arundel,Other Write-Ins,Other Write-Ins,,False,747,24003,Anne Arundel,216023,0.35,12/07/2022 03:05:50 PM,2074,2074
+Baltimore City,Other Write-Ins,Other Write-Ins,,False,258,24510,Baltimore City,143867,0.18,12/07/2022 03:05:50 PM,2074,2074
+Baltimore County,Other Write-Ins,Other Write-Ins,,False,803,24005,Baltimore County,272054,0.3,12/07/2022 03:05:50 PM,2074,2074
+Calvert,Other Write-Ins,Other Write-Ins,,False,82,24009,Calvert,37577,0.22,12/07/2022 03:05:50 PM,2074,2074
+Caroline,Other Write-Ins,Other Write-Ins,,False,22,24011,Caroline,10729,0.21,12/07/2022 03:05:50 PM,2074,2074
+Carroll,Other Write-Ins,Other Write-Ins,,False,281,24013,Carroll,71887,0.39,12/07/2022 03:05:50 PM,2074,2074
+Cecil,Other Write-Ins,Other Write-Ins,,False,55,24015,Cecil,33067,0.17,12/07/2022 03:05:50 PM,2074,2074
+Charles,Other Write-Ins,Other Write-Ins,,False,76,24017,Charles,54510,0.14,12/07/2022 03:05:50 PM,2074,2074
+Dorchester,Other Write-Ins,Other Write-Ins,,False,17,24019,Dorchester,11493,0.15,12/07/2022 03:05:50 PM,2074,2074
+Frederick,Other Write-Ins,Other Write-Ins,,False,261,24021,Frederick,106608,0.24,12/07/2022 03:05:50 PM,2074,2074
+Garrett,Other Write-Ins,Other Write-Ins,,False,9,24023,Garrett,11305,0.08,12/07/2022 03:05:50 PM,2074,2074
+Harford,Other Write-Ins,Other Write-Ins,,False,315,24025,Harford,103346,0.3,12/07/2022 03:05:50 PM,2074,2074
+Howard,Other Write-Ins,Other Write-Ins,,False,398,24027,Howard,130291,0.31,12/07/2022 03:05:50 PM,2074,2074
+Kent,Other Write-Ins,Other Write-Ins,,False,9,24029,Kent,8463,0.11,12/07/2022 03:05:50 PM,2074,2074
+Montgomery,Other Write-Ins,Other Write-Ins,,False,792,24031,Montgomery,343371,0.23,12/07/2022 03:05:50 PM,2074,2074
+Prince George's,Other Write-Ins,Other Write-Ins,,False,358,24033,Prince George's,240908,0.15,12/07/2022 03:05:50 PM,2074,2074
+Queen Anne's,Other Write-Ins,Other Write-Ins,,False,76,24035,Queen Anne's,22899,0.33,12/07/2022 03:05:50 PM,2074,2074
+Saint Mary's,Other Write-Ins,Other Write-Ins,,False,84,24037,St. Mary's,37703,0.22,12/07/2022 03:05:50 PM,2074,2074
+Somerset,Other Write-Ins,Other Write-Ins,,False,7,24039,Somerset,6829,0.1,12/07/2022 03:05:50 PM,2074,2074
+Talbot,Other Write-Ins,Other Write-Ins,,False,45,24041,Talbot,17646,0.26,12/07/2022 03:05:50 PM,2074,2074
+Washington,Other Write-Ins,Other Write-Ins,,False,64,24043,Washington,48853,0.13,12/07/2022 03:05:50 PM,2074,2074
+Wicomico,Other Write-Ins,Other Write-Ins,,False,41,24045,Wicomico,30296,0.14,12/07/2022 03:05:50 PM,2074,2074
+Worcester,Other Write-Ins,Other Write-Ins,,False,29,24047,Worcester,23801,0.12,12/07/2022 03:05:50 PM,2074,2074
