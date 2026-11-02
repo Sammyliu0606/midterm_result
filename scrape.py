@@ -10,12 +10,16 @@ Writes:
   <out>/master/   tidy "source of truth" CSVs
   <out>/flourish/ wide, Flourish-ready CSVs
 
-Usage (2022 archive test):
+Usage (2022 archive test; writes to data/live):
   python scrape.py
 
-Usage (2026 election night, once SBE confirms the URL):
-  python scrape.py --base-url https://<host>/elections/2026/general_results/ \
-                   --out data/2026 --baseline data/2022/master/gov_county.csv
+Usage (2026 election night):
+  python scrape.py --base-url https://elections.maryland.gov/elections/2026/general_results/
+
+Output always goes to data/live/ (unless --out is given), so Flourish links never
+change when you switch from the 2022 test to 2026. The 2022 county baseline for the
+shift map (Moore's official 2022 county results) is read from
+reference/gov_2022_county.csv automatically.
 
 If any validation check fails, NOTHING is written and the script exits with
 code 1, so a broken scrape never overwrites the last good data.
@@ -24,6 +28,8 @@ code 1, so a broken scrape never overwrites the last good data.
 from __future__ import annotations
 
 import argparse
+import json
+import math
 import re
 import shutil
 import sys
@@ -47,18 +53,28 @@ DEM_PARTY = "Democratic"      # used to find Moore (and his 2022 baseline) by pa
 REP_PARTY = "Republican"
 USER_AGENT = "MD-election-results-scraper (newsroom data desk; contact: your-email@example.com)"
 REQUEST_PAUSE_SEC = 0.5
-N_JURISDICTIONS = 24
-GOV_MAIN_VIEW_TOP_N = 3
-OTHER_PARTIES_LABEL = "Other parties"
-GOV_MAIN_VIEW_LABEL = "Leading candidates"
-GOV_ALL_VIEW_LABEL = "All candidates"
-# Popup text colors for the governor map: use the END colors of the Flourish diverging palette
+# Popup text colors for the governor map. Set these to the two END colors of your
+# Flourish diverging palette (the darkest blue and darkest red) so text matches the map.
 DEM_COLOR = "#2166ac"
 REP_COLOR = "#b2182b"
 TIE_COLOR = "#555555"
-# Ballot question maps: non-partisan colors (END colors of the Flourish palette)
+# Ballot question maps: use non-partisan colors so For/Against isn't read as Dem/Rep.
+# Set to the END colors of the Flourish palette you pick for the question maps.
 Q_FOR_COLOR = "#77BB41"       # green (matches the question bar charts)
 Q_AGAINST_COLOR = "#FF9300"   # orange
+OTHER_PARTIES_LABEL = "Other parties"        # legend label for everyone not Dem/Rep
+
+# Shift arrow map: arrow length = |margin shift| x ARROW_DEG_PER_POINT (map degrees).
+# 0.02 makes a 10-point shift about 0.2 degrees (~20 km). Raise to make arrows longer.
+ARROW_DEG_PER_POINT = 0.02
+ARROW_TILT_DEG = 45          # 0 = flat left/right; 45 = NYT-style diagonal
+ARROW_HEAD_FRACTION = 0.35   # head size relative to arrow length
+ARROW_HEAD_MIN_DEG = 0.02    # so small shifts still get a visible head
+ARROW_HEAD_ANGLE_DEG = 28
+GOV_MAIN_VIEW_TOP_N = 3                    # candidates shown before "All candidates"
+GOV_MAIN_VIEW_LABEL = "Leading candidates"
+GOV_ALL_VIEW_LABEL = "All candidates"
+N_JURISDICTIONS = 24
 
 HERE = Path(__file__).resolve().parent
 COUNTIES = pd.read_csv(HERE / "reference" / "md_counties.csv", dtype={"fips": str})
@@ -361,10 +377,11 @@ def build_governor(fetch: Fetcher, url: str):
     county["county_total"] = county.groupby("fips")["votes"].transform("sum")
     county["pct"] = (county["votes"] / county["county_total"] * 100).round(2)
 
-    # statewide page and county page must agree
+    # statewide page and county page must agree (NR / blank counts as 0 on both sides)
     cs = county.groupby("candidate")["votes"].sum()
     for _, r in state.iterrows():
-        if r["candidate"] in cs and cs[r["candidate"]] != r["votes"]:
+        sw = 0 if pd.isna(r["votes"]) else r["votes"]
+        if r["candidate"] in cs and cs[r["candidate"]] != sw:
             raise ScrapeError(f"Governor: county total for {r['candidate']} ({cs[r['candidate']]}) != statewide ({r['votes']})")
 
     return add_meta(state, meta), add_meta(county, meta), meta
@@ -398,27 +415,33 @@ def build_house(fetch: Fetcher, districts: dict) -> pd.DataFrame:
 
 
 def flourish_question_files(n, state, county, meta):
+    # response_label = SBE's wording, e.g. "For the Constitutional Amendment"
+    # "For" / "Against" columns hold pct only on their own row, so Flourish can color each bar
     bar = add_display_columns(state[["response", "response_label", "votes", "pct"]])
     for r in ("For", "Against"):
         bar[r] = bar["pct"].where(bar["response"] == r)
-    wide = county.pivot_table(index=["fips", "county"], columns="response", values=["votes", "pct"], aggfunc="first")
+    # pivot (not pivot_table) keeps columns that are still all blank before results come in
+    wide = county.pivot(index=["fips", "county"], columns="response", values=["votes", "pct"])
     wide.columns = [f"{resp.lower()}_{val}" for val, resp in wide.columns]
-    wide = wide.reset_index().merge(COUNTIES[["fips", "county_full"]], on="fips")
+    for c in ("for_votes", "against_votes", "for_pct", "against_pct"):
+        if c not in wide:
+            wide[c] = float("nan")
+    wide = wide.astype(float).reset_index().merge(COUNTIES[["fips", "county_full"]], on="fips")
     wide["total_votes"] = wide["for_votes"].fillna(0) + wide["against_votes"].fillna(0)
     wide["margin"] = (wide["for_pct"] - wide["against_pct"]).round(2)
-    wide["leader"] = wide["margin"].apply(lambda m: "For" if m > 0 else ("Against" if m < 0 else "Tied"))
+    wide["leader"] = wide["margin"].apply(lambda m: leader_text(m, "For", "Against"))
+    # pre-formatted popup text, same pattern as the governor map
     for side in ("for", "against"):
-        wide[f"{side}_votes_display"] = wide[f"{side}_votes"].apply(lambda v: f"{int(v):,}" if pd.notna(v) else "")
-        wide[f"{side}_pct_display"] = wide[f"{side}_pct"].apply(
-            lambda p: f"{p:.{PCT_DISPLAY_DECIMALS}f}%" if pd.notna(p) else "")
-    wide["margin_display"] = wide["margin"].apply(
-        lambda x: "Tied" if x == 0 else f"{'For' if x > 0 else 'Against'} +{abs(x):.{PCT_DISPLAY_DECIMALS}f}")
-    wide["margin_color"] = wide["margin"].apply(
-        lambda x: Q_FOR_COLOR if x > 0 else (Q_AGAINST_COLOR if x < 0 else TIE_COLOR))
+        wide[f"{side}_votes_display"] = wide[f"{side}_votes"].apply(fmt_int)
+        wide[f"{side}_pct_display"] = wide[f"{side}_pct"].apply(fmt_pct)
+    wide["margin_display"] = wide["margin"].apply(lambda x: margin_text(x, "For", "Against"))
+    wide["margin_color"] = wide["margin"].apply(lambda x: margin_color(x, Q_FOR_COLOR, Q_AGAINST_COLOR))
+    # vote-share map (For %): headline text for the popup
+    wide["for_share_display"] = wide["for_pct"].apply(lambda p: f"For: {fmt_pct(p)}" if pd.notna(p) else NO_RESULTS_TEXT)
     wide = wide[["fips", "county", "county_full", "for_votes", "against_votes", "total_votes",
                  "for_pct", "against_pct", "margin", "leader",
                  "for_votes_display", "for_pct_display", "against_votes_display", "against_pct_display",
-                 "margin_display", "margin_color"]]
+                 "margin_display", "margin_color", "for_share_display"]]
     return add_meta(bar, meta), add_meta(wide, meta)
 
 
@@ -433,24 +456,66 @@ def party_columns(county: pd.DataFrame, party: str, prefix: str) -> pd.DataFrame
 
 
 PCT_DISPLAY_DECIMALS = 1
+NO_RESULTS_TEXT = "No results yet"
 
 
-def add_display_columns(df):
+def fmt_pct(p) -> str:
+    return f"{p:.{PCT_DISPLAY_DECIMALS}f}%" if pd.notna(p) else ""
+
+
+def fmt_int(v) -> str:
+    return f"{int(v):,}" if pd.notna(v) else ""
+
+
+def margin_text(margin, pos_name: str, neg_name: str) -> str:
+    """+18.57 -> 'Wes Moore +18.6' ; -33.87 -> 'Dan Cox +33.9' ; NaN -> 'No results yet'."""
+    if pd.isna(margin):
+        return NO_RESULTS_TEXT
+    if margin == 0:
+        return "Tied"
+    return f"{pos_name if margin > 0 else neg_name} +{abs(margin):.{PCT_DISPLAY_DECIMALS}f}"
+
+
+def margin_color(margin, pos_color: str, neg_color: str) -> str:
+    if pd.isna(margin) or margin == 0:
+        return TIE_COLOR
+    return pos_color if margin > 0 else neg_color
+
+
+def leader_text(margin, pos: str, neg: str) -> str:
+    if pd.isna(margin):
+        return NO_RESULTS_TEXT
+    return pos if margin > 0 else (neg if margin < 0 else "Tied")
+
+
+def add_display_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Pre-formatted text for Flourish popups: votes_display '1,293,944', pct_display '64.5%'."""
     df = df.copy()
-    df["votes_display"] = df["votes"].apply(lambda v: f"{int(v):,}" if pd.notna(v) else "")
-    df["pct_display"] = df["pct"].apply(lambda p: f"{p:.{PCT_DISPLAY_DECIMALS}f}%" if pd.notna(p) else "")
+    df["votes_display"] = df["votes"].apply(fmt_int)
+    df["pct_display"] = df["pct"].apply(fmt_pct)
     return df
 
 
 def gov_bar_table(state: pd.DataFrame) -> pd.DataFrame:
+    """
+    Governor bar-chart data for Flourish.
+
+    - `view`: every row appears under "All candidates"; the top GOV_MAIN_VIEW_TOP_N
+      also appear under "Leading candidates". Bind `view` to Flourish's Row filter
+      to get a NYT-style "show all candidates" toggle.
+    - One column per party (e.g. "Democratic", "Republican") holding that
+      candidate's pct, blank for everyone else. Bind these as Values in a
+      stacked bar chart so each bar is colored by party and gets a legend.
+    """
     bar = state[["governor", "candidate", "party", "votes", "pct"]].copy()
     bar["party"] = bar["party"].fillna("").replace("", "Write-in")
     bar = bar.sort_values("votes", ascending=False).reset_index(drop=True)
-    bar["label"] = bar.apply(lambda r: r["governor"] if r["party"] == "Write-in" else f"{r['governor']} ({r['party']})", axis=1)
+    bar["label"] = bar["governor"].where(bar["party"] == "Write-in", bar["governor"] + " (" + bar["party"] + ")")
     bar["total_votes"] = bar["votes"].sum()
     bar = add_display_columns(bar)
 
-    # one pct column per party (in vote order) so Flourish can colour bars by party
+    # Legend groups: always exactly these three columns, so Flourish bindings never change.
+    # The real party name stays in the "party" column for popups.
     bar["party_group"] = bar["party"].apply(lambda p: p if p in (DEM_PARTY, REP_PARTY) else OTHER_PARTIES_LABEL)
     parties = [DEM_PARTY, REP_PARTY, OTHER_PARTIES_LABEL]
     for p in parties:
@@ -458,8 +523,16 @@ def gov_bar_table(state: pd.DataFrame) -> pd.DataFrame:
 
     main = bar.head(GOV_MAIN_VIEW_TOP_N).assign(view=GOV_MAIN_VIEW_LABEL)
     full = bar.assign(view=GOV_ALL_VIEW_LABEL)
-    cols = ["view", "governor", "party", "party_group", "label", "votes", "pct", "votes_display", "pct_display", "total_votes", "candidate"] + parties
-    return pd.concat([main, full], ignore_index=True)[cols]
+    out = pd.concat([main, full], ignore_index=True)     # main view first = Flourish default
+    return out[["view", "governor", "party", "party_group", "label", "votes", "pct", "votes_display", "pct_display",
+                "total_votes", "candidate"] + parties]
+
+
+NO_RESULTS_TEXT = "No results yet"
+
+
+def fmt_pct(p) -> str:
+    return f"{p:.{PCT_DISPLAY_DECIMALS}f}%" if pd.notna(p) else ""
 
 
 def flourish_gov_files(state, county, meta):
@@ -472,31 +545,135 @@ def flourish_gov_files(state, county, meta):
          .merge(base, on="fips"))
     m["other_pct"] = (100 - m["dem_pct"] - m["rep_pct"]).round(2)
     m["margin"] = (m["dem_pct"] - m["rep_pct"]).round(2)
-    m["leader"] = m["margin"].apply(lambda x: "Dem" if x > 0 else ("Rep" if x < 0 else "Tied"))
-    fmt_pct = lambda p: f"{p:.{PCT_DISPLAY_DECIMALS}f}%" if pd.notna(p) else ""
-    fmt_int = lambda v: f"{int(v):,}" if pd.notna(v) else ""
+    m["leader"] = m["margin"].apply(lambda x: leader_text(x, "Dem", "Rep"))
+
+    # pre-formatted text for popups (Flourish shows these as-is)
     for side in ("dem", "rep"):
         m[f"{side}_votes_display"] = m[f"{side}_votes"].apply(fmt_int)
         m[f"{side}_pct_display"] = m[f"{side}_pct"].apply(fmt_pct)
-    m["margin_display"] = m.apply(
-        lambda r: "Tied" if r["margin"] == 0 else
-        f"{r['dem_governor'] if r['margin'] > 0 else r['rep_governor']} +{abs(r['margin']):.{PCT_DISPLAY_DECIMALS}f}",
-        axis=1)
-    m["margin_color"] = m["margin"].apply(
-        lambda x: DEM_COLOR if x > 0 else (REP_COLOR if x < 0 else TIE_COLOR))
+    # margin map
+    m["margin_display"] = m.apply(lambda r: margin_text(r["margin"], r["dem_governor"], r["rep_governor"]), axis=1)
+    m["margin_color"] = m["margin"].apply(lambda x: margin_color(x, DEM_COLOR, REP_COLOR))
+    # vote-share map (color by dem_pct): headline text for the popup
+    m["dem_share_display"] = m.apply(
+        lambda r: f"{r['dem_governor']}: {fmt_pct(r['dem_pct'])}" if pd.notna(r["dem_pct"]) else NO_RESULTS_TEXT, axis=1)
+    # winner's vote-share map: color each county for whoever won it, shaded by the winner's share
+    def winner_cols(r):
+        if pd.isna(r["margin"]) or r["margin"] == 0:
+            return pd.Series({"winner": "", "winner_party": "", "winner_pct": float("nan"),
+                              "winner_share_signed": float("nan"),
+                              "winner_bin": NO_RESULTS_TEXT if pd.isna(r["margin"]) else "Tied"})
+        dem_won = r["margin"] > 0
+        pct = r["dem_pct"] if dem_won else r["rep_pct"]
+        party = "Democrat" if dem_won else "Republican"
+        return pd.Series({
+            "winner": r["dem_governor"] if dem_won else r["rep_governor"],
+            "winner_party": party,
+            "winner_pct": pct,
+            "winner_share_signed": pct if dem_won else -pct,   # + = Dem win, - = Rep win
+            "winner_bin": f"{party} {share_bin(pct)}",         # stable labels for categorical colors
+        })
+    m = pd.concat([m, m.apply(winner_cols, axis=1)], axis=1)
+    m["winner_pct_display"] = m["winner_pct"].apply(fmt_pct)
+    m["winner_display"] = m.apply(
+        lambda r: f"{r['winner']} won with {fmt_pct(r['winner_pct'])}" if r["winner"] else r["winner_bin"], axis=1)
     return add_meta(bar, meta), add_meta(m, meta)
 
 
-def flourish_shift(county_now: pd.DataFrame, baseline_path: Path, meta) -> pd.DataFrame:
+WINNER_SHARE_BINS = [(0, 50, "under 50%"), (50, 60, "50-60%"), (60, 70, "60-70%"),
+                     (70, 80, "70-80%"), (80, 101, "80%+")]
+
+
+def share_bin(pct) -> str:
+    for lo, hi, label in WINNER_SHARE_BINS:
+        if lo <= pct < hi:
+            return label
+    return ""
+
+
+# --------------------------------------------------------------------------
+# Margin-shift arrow map
+# --------------------------------------------------------------------------
+def year_of(text: str, default: str) -> str:
+    m = re.search(r"(20\d\d)", str(text or ""))
+    return m.group(1) if m else default
+
+
+def arrow_lines(lon: float, lat: float, shift: float) -> list:
+    """
+    Arrow from the county center. Shift toward Democrats points up-right,
+    toward Republicans up-left; length grows with the size of the shift.
+    Returns GeoJSON MultiLineString coordinates: [shaft, head-left, head-right].
+    """
+    if pd.isna(shift) or shift == 0:
+        return []
+    k = math.cos(math.radians(lat))                       # squash longitude so angles look right on the map
+    length = abs(shift) * ARROW_DEG_PER_POINT
+    sign = 1 if shift > 0 else -1
+    ang = math.radians(ARROW_TILT_DEG)
+    dx, dy = sign * length * math.cos(ang), length * math.sin(ang)
+    tip = (lon + dx / k, lat + dy)
+    head = min(max(length * ARROW_HEAD_FRACTION, ARROW_HEAD_MIN_DEG), length)
+    back = math.atan2(-dy, -dx)                           # direction from tip back toward the start
+    wings = []
+    for side in (-1, 1):
+        a = back + side * math.radians(ARROW_HEAD_ANGLE_DEG)
+        wings.append([[tip[0], tip[1]], [tip[0] + head * math.cos(a) / k, tip[1] + head * math.sin(a)]])
+    r = lambda p: [round(p[0], 5), round(p[1], 5)]
+    return [[r((lon, lat)), r(tip)]] + [[r(a), r(b)] for a, b in wings]
+
+
+def flourish_shift(county_now: pd.DataFrame, baseline_path: Path, meta: dict, base_url: str):
+    """Change in Moore's (Democratic) MARGIN by county, plus arrow geometry for Flourish."""
     base = pd.read_csv(baseline_path, dtype={"fips": str})
-    base_dem = party_columns(base, DEM_PARTY, "dem")
-    now_dem = party_columns(county_now, DEM_PARTY, "dem")
-    df = (COUNTIES.merge(base_dem[["fips", "dem_pct"]].rename(columns={"dem_pct": "pct_2022"}), on="fips")
-                  .merge(now_dem[["fips", "dem_pct"]].rename(columns={"dem_pct": "pct_2026"}), on="fips"))
-    df["shift_pts"] = (df["pct_2026"] - df["pct_2022"]).round(2)
-    df["direction"] = df["shift_pts"].apply(lambda s: "Up" if s > 0 else ("Down" if s < 0 else "No change"))
-    return add_meta(df[["fips", "county", "county_full", "lat", "lon", "pct_2022", "pct_2026",
-                        "shift_pts", "direction"]], meta)
+    year_prev = year_of(base["last_refreshed"].iloc[0] if "last_refreshed" in base else "", "Previous")
+    year_now = year_of(base_url, "Now")
+
+    def margins(df, suffix):
+        d = party_columns(df, DEM_PARTY, "dem").merge(party_columns(df, REP_PARTY, "rep"), on="fips")
+        d[f"margin_{suffix}"] = (d["dem_pct"] - d["rep_pct"]).round(2)
+        return d.rename(columns={"dem_pct": f"dem_pct_{suffix}", "dem_governor": f"dem_governor_{suffix}",
+                                 "rep_governor": f"rep_governor_{suffix}"})[
+            ["fips", f"dem_governor_{suffix}", f"rep_governor_{suffix}", f"dem_pct_{suffix}", f"margin_{suffix}"]]
+
+    df = COUNTIES.merge(margins(base, "prev"), on="fips").merge(margins(county_now, "now"), on="fips")
+    df["margin_shift"] = (df["margin_now"] - df["margin_prev"]).round(2)
+    df["share_shift"] = (df["dem_pct_now"] - df["dem_pct_prev"]).round(2)
+
+    df["direction"] = df["margin_shift"].apply(
+        lambda s: NO_RESULTS_TEXT if pd.isna(s) else ("Toward Democrats" if s > 0 else
+                                                     ("Toward Republicans" if s < 0 else "No change")))
+    df["prev_margin_display"] = df.apply(
+        lambda r: f"{year_prev}: {margin_text(r['margin_prev'], r['dem_governor_prev'], r['rep_governor_prev'])}", axis=1)
+    df["now_margin_display"] = df.apply(
+        lambda r: f"{year_now}: {margin_text(r['margin_now'], r['dem_governor_now'], r['rep_governor_now'])}", axis=1)
+    df["shift_display"] = df.apply(
+        lambda r: NO_RESULTS_TEXT if pd.isna(r["margin_shift"]) else
+        ("No change" if r["margin_shift"] == 0 else
+         f"{abs(r['margin_shift']):.{PCT_DISPLAY_DECIMALS}f} pts toward "
+         f"{r['dem_governor_now'] if r['margin_shift'] > 0 else r['rep_governor_now']}"), axis=1)
+    df["shift_color"] = df["margin_shift"].apply(lambda x: margin_color(x, DEM_COLOR, REP_COLOR))
+
+    lines = [arrow_lines(r["lon"], r["lat"], r["margin_shift"]) for _, r in df.iterrows()]
+    df["arrow_end_lon"] = [l[0][1][0] if l else None for l in lines]
+    df["arrow_end_lat"] = [l[0][1][1] if l else None for l in lines]
+    df["geometry"] = [json.dumps({"type": "MultiLineString", "coordinates": l}) if l else "" for l in lines]
+
+    cols = ["fips", "county", "county_full", "lat", "lon",
+            "dem_governor_now", "rep_governor_now", "dem_pct_prev", "dem_pct_now",
+            "margin_prev", "margin_now", "margin_shift", "share_shift", "direction",
+            "prev_margin_display", "now_margin_display", "shift_display", "shift_color",
+            "arrow_end_lat", "arrow_end_lon", "geometry"]
+    table = add_meta(df[cols], meta)
+
+    feats = [{"type": "Feature", "id": r["fips"],
+              "properties": {k: (None if pd.isna(r[k]) else r[k]) for k in
+                             ["fips", "county_full", "margin_shift", "direction", "shift_display", "shift_color",
+                              "prev_margin_display", "now_margin_display"]},
+              "geometry": {"type": "MultiLineString", "coordinates": l}}
+             for (_, r), l in zip(df.iterrows(), lines) if l]
+    geojson = json.dumps({"type": "FeatureCollection", "features": feats})
+    return table, geojson
 
 
 # --------------------------------------------------------------------------
@@ -524,7 +701,9 @@ def run(args) -> dict[str, pd.DataFrame]:
     out["flourish/flourish_gov_bar.csv"] = bar
     out["flourish/flourish_gov_map.csv"] = gmap
     if args.baseline:
-        out["flourish/flourish_moore_shift.csv"] = flourish_shift(gov_county, Path(args.baseline), gov_meta)
+        shift_table, shift_geojson = flourish_shift(gov_county, Path(args.baseline), gov_meta, args.base_url)
+        out["flourish/flourish_moore_shift.csv"] = shift_table
+        out["flourish/flourish_moore_shift_arrows.geojson"] = shift_geojson
 
     if found["districts"]:
         out["master/house_districts.csv"] = build_house(fetch, found["districts"])
@@ -537,11 +716,23 @@ def run(args) -> dict[str, pd.DataFrame]:
         out[f"flourish/flourish_q{q}_bar.csv"] = qbar
         out[f"flourish/flourish_q{q}_map.csv"] = qmap
 
+    out[SOURCE_FILE] = args.base_url + "\n"
     return out
 
 
+SOURCE_FILE = "_source.txt"   # records which SBE address the files in this folder came from
+
+
 def check_against_previous(out: dict, out_dir: Path):
-    """Refuse to publish if a race suddenly has fewer candidates/rows than last time."""
+    """
+    Refuse to publish if a race suddenly has fewer candidates/rows than last time.
+    Skipped when the source address changed (e.g. switching from the 2022 test
+    data to 2026), since a different election can legitimately have fewer rows.
+    """
+    src = out_dir / SOURCE_FILE
+    if src.exists() and src.read_text().strip() != out[SOURCE_FILE].strip():
+        print(f"Source changed ({src.read_text().strip()} -> {out[SOURCE_FILE].strip()}); skipping row-count check.")
+        return
     for rel, df in out.items():
         prev = out_dir / rel
         if rel.startswith("master/") and prev.exists():
@@ -556,7 +747,10 @@ def write_atomically(out: dict, out_dir: Path):
         for rel, df in out.items():
             p = tmp / rel
             p.parent.mkdir(parents=True, exist_ok=True)
-            df.to_csv(p, index=False)
+            if isinstance(df, str):
+                p.write_text(df, encoding="utf-8")
+            else:
+                df.to_csv(p, index=False)
         for rel in out:
             dest = out_dir / rel
             dest.parent.mkdir(parents=True, exist_ok=True)
@@ -567,10 +761,13 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--base-url", default=DEFAULT_BASE_URL)
     ap.add_argument("--index", default=DEFAULT_INDEX)
-    ap.add_argument("--out", default="data/2022")
+    ap.add_argument("--out", default="data/live",
+                    help="output folder; Flourish links point here, so keep it the same all night")
     ap.add_argument("--questions", default=DEFAULT_QUESTIONS, help="comma-separated, e.g. 1,2,3")
     ap.add_argument("--districts", type=int, default=DEFAULT_DISTRICTS, help="expected number of House districts")
-    ap.add_argument("--baseline", help="2022 master/gov_county.csv, enables the shift file")
+    default_baseline = HERE / "reference" / "gov_2022_county.csv"   # Moore 2022, from SBE's official county page
+    ap.add_argument("--baseline", default=str(default_baseline) if default_baseline.exists() else None,
+                    help="2022 county results for the shift map (default: reference/gov_2022_county.csv); pass '' to skip")
     ap.add_argument("--fixtures", help="read saved HTML pages from this folder instead of the web")
     args = ap.parse_args()
 
@@ -583,7 +780,8 @@ def main():
 
     write_atomically(out, Path(args.out))
     for rel, df in out.items():
-        print(f"  wrote {Path(args.out) / rel}  ({len(df)} rows)")
+        size = f"{len(df)} rows" if isinstance(df, pd.DataFrame) else "text"
+        print(f"  wrote {Path(args.out) / rel}  ({size})")
 
 
 if __name__ == "__main__":
