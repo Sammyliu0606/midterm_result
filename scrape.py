@@ -438,10 +438,24 @@ def flourish_question_files(n, state, county, meta):
     wide["margin_color"] = wide["margin"].apply(lambda x: margin_color(x, Q_FOR_COLOR, Q_AGAINST_COLOR))
     # vote-share map (For %): headline text for the popup
     wide["for_share_display"] = wide["for_pct"].apply(lambda p: f"For: {fmt_pct(p)}" if pd.notna(p) else NO_RESULTS_TEXT)
+
+    def q_winner(r):
+        if pd.isna(r["margin"]):
+            return pd.Series({"winner": "", "winner_pct": float("nan"), "winner_bin": NO_RESULTS_TEXT})
+        if r["margin"] == 0:
+            return pd.Series({"winner": "", "winner_pct": 50.0, "winner_bin": "Tied"})
+        side = "For" if r["margin"] > 0 else "Against"
+        pct = r["for_pct"] if side == "For" else r["against_pct"]
+        return pd.Series({"winner": side, "winner_pct": pct, "winner_bin": f"{side} {share_bin(pct)}"})
+    wide = pd.concat([wide, wide.apply(q_winner, axis=1)], axis=1)
+    wide["winner_pct_display"] = wide["winner_pct"].apply(fmt_pct)
+    wide["winner_display"] = wide.apply(
+        lambda r: f"{r['winner']} won with {fmt_pct(r['winner_pct'])}" if r["winner"] else r["winner_bin"], axis=1)
     wide = wide[["fips", "county", "county_full", "for_votes", "against_votes", "total_votes",
                  "for_pct", "against_pct", "margin", "leader",
                  "for_votes_display", "for_pct_display", "against_votes_display", "against_pct_display",
-                 "margin_display", "margin_color", "for_share_display"]]
+                 "margin_display", "margin_color", "for_share_display",
+                 "winner", "winner_pct", "winner_pct_display", "winner_bin", "winner_display"]]
     return add_meta(bar, meta), add_meta(wide, meta)
 
 
