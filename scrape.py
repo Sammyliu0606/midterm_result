@@ -57,8 +57,8 @@ DEM_COLOR = "#2166ac"
 REP_COLOR = "#b2182b"
 TIE_COLOR = "#555555"
 # Ballot question maps: non-partisan colors (END colors of the Flourish palette)
-Q_FOR_COLOR = "#1b7837"       # green
-Q_AGAINST_COLOR = "#762a83"   # purple
+Q_FOR_COLOR = "#77BB41"       # green (matches the question bar charts)
+Q_AGAINST_COLOR = "#FF9300"   # orange
 
 HERE = Path(__file__).resolve().parent
 COUNTIES = pd.read_csv(HERE / "reference" / "md_counties.csv", dtype={"fips": str})
@@ -398,7 +398,9 @@ def build_house(fetch: Fetcher, districts: dict) -> pd.DataFrame:
 
 
 def flourish_question_files(n, state, county, meta):
-    bar = add_display_columns(state[["response", "votes", "pct"]])
+    bar = add_display_columns(state[["response", "response_label", "votes", "pct"]])
+    for r in ("For", "Against"):
+        bar[r] = bar["pct"].where(bar["response"] == r)
     wide = county.pivot_table(index=["fips", "county"], columns="response", values=["votes", "pct"], aggfunc="first")
     wide.columns = [f"{resp.lower()}_{val}" for val, resp in wide.columns]
     wide = wide.reset_index().merge(COUNTIES[["fips", "county_full"]], on="fips")
