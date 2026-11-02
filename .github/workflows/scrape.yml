@@ -26,20 +26,18 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      # Set SBE_BASE_URL under Settings > Secrets and variables > Actions > Variables
-      # once SBE confirms the 2026 address. Must end with a slash.
+      # SBE_BASE_URL is set under Settings > Secrets and variables > Actions > Variables.
+      # It must end with a slash. Switching it from the 2022 archive to the 2026 address
+      # is the ONLY change needed on election night: output always goes to data/live,
+      # so the Flourish links stay the same.
       - name: Scrape
-        run: |
-          python scrape.py \
-            --base-url "${{ vars.SBE_BASE_URL }}" \
-            --out data/2026 \
-            --baseline data/2022/master/gov_county.csv
+        run: python scrape.py --base-url "${{ vars.SBE_BASE_URL }}" --out data/live
 
       - name: Commit if data changed
         run: |
           git config user.name "results-bot"
           git config user.email "results-bot@users.noreply.github.com"
-          git add data/2026
+          git add data/live
           if git diff --cached --quiet; then
             echo "No change since last run."
           else
