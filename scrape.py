@@ -74,6 +74,7 @@ ARROW_HEAD_ANGLE_DEG = 28
 GOV_MAIN_VIEW_TOP_N = 3                    # candidates shown before "All candidates"
 GOV_MAIN_VIEW_LABEL = "Leading candidates"
 GOV_ALL_VIEW_LABEL = "All candidates"
+HOUSE_BAR_DISTRICTS = [1]   # congressional districts that get a Flourish bar file
 N_JURISDICTIONS = 24
 
 HERE = Path(__file__).resolve().parent
@@ -549,6 +550,35 @@ def fmt_pct(p) -> str:
     return f"{p:.{PCT_DISPLAY_DECIMALS}f}%" if pd.notna(p) else ""
 
 
+def house_bar_table(house: pd.DataFrame, district: int) -> pd.DataFrame:
+    """
+    Bar-chart data for one congressional district: one row per candidate (no
+    Leading/All toggle), plus the same three fixed legend columns as the governor
+    chart (Democratic, Republican, Other parties).
+    """
+    meta_cols = ["last_refreshed", "precincts_reported", "precincts_total"]
+    d = house[house["district"] == district]
+    if d.empty:
+        raise ScrapeError(f"No rows for congressional district {district}")
+    meta = d[meta_cols].iloc[0].to_dict()
+
+    bar = d[["district", "candidate", "party", "votes", "pct"]].copy()
+    bar["party"] = bar["party"].fillna("").replace("", "Write-in")
+    bar = bar.sort_values("votes", ascending=False).reset_index(drop=True)
+    bar["label"] = bar["candidate"].where(bar["party"] == "Write-in", bar["candidate"] + " (" + bar["party"] + ")")
+    bar["total_votes"] = bar["votes"].sum()
+    bar = add_display_columns(bar)
+
+    bar["party_group"] = bar["party"].apply(lambda p: p if p in (DEM_PARTY, REP_PARTY) else OTHER_PARTIES_LABEL)
+    parties = [DEM_PARTY, REP_PARTY, OTHER_PARTIES_LABEL]
+    for p in parties:
+        bar[p] = bar["pct"].where(bar["party_group"] == p)
+
+    out = bar[["district", "candidate", "party", "party_group", "label", "votes", "pct",
+               "votes_display", "pct_display", "total_votes"] + parties]
+    return add_meta(out, meta)
+
+
 def flourish_gov_files(state, county, meta):
     bar = gov_bar_table(state)
 
@@ -720,7 +750,12 @@ def run(args) -> dict[str, pd.DataFrame]:
         out["flourish/flourish_moore_shift_arrows.geojson"] = shift_geojson
 
     if found["districts"]:
-        out["master/house_districts.csv"] = build_house(fetch, found["districts"])
+        house = build_house(fetch, found["districts"])
+        out["master/house_districts.csv"] = house
+        for d in HOUSE_BAR_DISTRICTS:
+            if d not in found["districts"]:
+                raise ScrapeError(f"Congressional district {d} not linked on index page")
+            out[f"flourish/flourish_house_d{d}_bar.csv"] = house_bar_table(house, d)
 
     for q in want_q:
         q_state, q_county, q_meta = build_question(fetch, q, found["questions"][q])
