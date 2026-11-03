@@ -1,25 +1,25 @@
 fips,county,county_full,lat,lon,dem_governor_now,rep_governor_now,dem_pct_prev,dem_pct_now,margin_prev,margin_now,margin_shift,share_shift,direction,prev_margin_display,now_margin_display,shift_display,shift_color,arrow_end_lat,arrow_end_lon,geometry,last_refreshed,precincts_reported,precincts_total
-24001,Allegany,Allegany County,39.62,-78.7,Wes Moore,Dan Cox,31.32,31.32,-33.87,-33.87,0.0,0.0,No change,2022: Dan Cox +33.9,2022: Dan Cox +33.9,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24003,Anne Arundel,Anne Arundel County,38.99,-76.56,Wes Moore,Dan Cox,57.37,57.37,18.57,18.57,0.0,0.0,No change,2022: Wes Moore +18.6,2022: Wes Moore +18.6,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24005,Baltimore County,Baltimore County,39.46,-76.62,Wes Moore,Dan Cox,63.4,63.4,30.7,30.7,0.0,0.0,No change,2022: Wes Moore +30.7,2022: Wes Moore +30.7,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24510,Baltimore City,Baltimore City,39.3,-76.61,Wes Moore,Dan Cox,88.11,88.11,79.55,79.55,0.0,0.0,No change,2022: Wes Moore +79.5,2022: Wes Moore +79.5,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24009,Calvert,Calvert County,38.53,-76.53,Wes Moore,Dan Cox,44.59,44.59,-7.75,-7.75,0.0,0.0,No change,2022: Dan Cox +7.8,2022: Dan Cox +7.8,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24011,Caroline,Caroline County,38.87,-75.83,Wes Moore,Dan Cox,32.13,32.13,-31.89,-31.89,0.0,0.0,No change,2022: Dan Cox +31.9,2022: Dan Cox +31.9,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24013,Carroll,Carroll County,39.56,-77.02,Wes Moore,Dan Cox,39.11,39.11,-17.48,-17.48,0.0,0.0,No change,2022: Dan Cox +17.5,2022: Dan Cox +17.5,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24015,Cecil,Cecil County,39.56,-75.94,Wes Moore,Dan Cox,36.27,36.27,-23.83,-23.83,0.0,0.0,No change,2022: Dan Cox +23.8,2022: Dan Cox +23.8,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24017,Charles,Charles County,38.47,-77.02,Wes Moore,Dan Cox,68.55,68.55,39.51,39.51,0.0,0.0,No change,2022: Wes Moore +39.5,2022: Wes Moore +39.5,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24019,Dorchester,Dorchester County,38.43,-76.05,Wes Moore,Dan Cox,41.02,41.02,-14.47,-14.47,0.0,0.0,No change,2022: Dan Cox +14.5,2022: Dan Cox +14.5,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24021,Frederick,Frederick County,39.47,-77.4,Wes Moore,Dan Cox,53.46,53.46,10.27,10.27,0.0,0.0,No change,2022: Wes Moore +10.3,2022: Wes Moore +10.3,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24023,Garrett,Garrett County,39.53,-79.27,Wes Moore,Dan Cox,22.18,22.18,-51.96,-51.96,0.0,0.0,No change,2022: Dan Cox +52.0,2022: Dan Cox +52.0,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24025,Harford,Harford County,39.54,-76.3,Wes Moore,Dan Cox,43.76,43.76,-8.45,-8.45,0.0,0.0,No change,2022: Dan Cox +8.4,2022: Dan Cox +8.4,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24027,Howard,Howard County,39.25,-76.93,Wes Moore,Dan Cox,69.87,69.87,43.38,43.38,0.0,0.0,No change,2022: Wes Moore +43.4,2022: Wes Moore +43.4,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24029,Kent,Kent County,39.24,-76.1,Wes Moore,Dan Cox,51.92,51.92,7.13,7.13,0.0,0.0,No change,2022: Wes Moore +7.1,2022: Wes Moore +7.1,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24031,Montgomery,Montgomery County,39.14,-77.2,Wes Moore,Dan Cox,78.36,78.36,59.57,59.57,0.0,0.0,No change,2022: Wes Moore +59.6,2022: Wes Moore +59.6,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24033,Prince George's,Prince George's County,38.83,-76.85,Wes Moore,Dan Cox,89.23,89.23,80.91,80.91,0.0,0.0,No change,2022: Wes Moore +80.9,2022: Wes Moore +80.9,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24035,Queen Anne's,Queen Anne's County,39.04,-76.08,Wes Moore,Dan Cox,38.92,38.92,-18.39,-18.39,0.0,0.0,No change,2022: Dan Cox +18.4,2022: Dan Cox +18.4,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24037,St. Mary's,St. Mary's County,38.3,-76.61,Wes Moore,Dan Cox,39.94,39.94,-16.16,-16.16,0.0,0.0,No change,2022: Dan Cox +16.2,2022: Dan Cox +16.2,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24039,Somerset,Somerset County,38.08,-75.85,Wes Moore,Dan Cox,36.48,36.48,-23.97,-23.97,0.0,0.0,No change,2022: Dan Cox +24.0,2022: Dan Cox +24.0,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24041,Talbot,Talbot County,38.75,-76.18,Wes Moore,Dan Cox,51.66,51.66,6.69,6.69,0.0,0.0,No change,2022: Wes Moore +6.7,2022: Wes Moore +6.7,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24043,Washington,Washington County,39.6,-77.81,Wes Moore,Dan Cox,38.33,38.33,-20.1,-20.1,0.0,0.0,No change,2022: Dan Cox +20.1,2022: Dan Cox +20.1,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24045,Wicomico,Wicomico County,38.37,-75.63,Wes Moore,Dan Cox,45.79,45.79,-4.92,-4.92,0.0,0.0,No change,2022: Dan Cox +4.9,2022: Dan Cox +4.9,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
-24047,Worcester,Worcester County,38.22,-75.33,Wes Moore,Dan Cox,38.64,38.64,-20.04,-20.04,0.0,0.0,No change,2022: Dan Cox +20.0,2022: Dan Cox +20.0,No change,#555555,,,,12/07/2022 03:05:50 PM,2074,2074
+24001,Allegany,Allegany County,39.62,-78.7,Wes Moore,Dan Cox,31.32,,-33.87,,,,No results yet,2022: Dan Cox +33.9,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24003,Anne Arundel,Anne Arundel County,38.99,-76.56,Wes Moore,Dan Cox,57.37,,18.57,,,,No results yet,2022: Wes Moore +18.6,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24005,Baltimore County,Baltimore County,39.46,-76.62,Wes Moore,Dan Cox,63.4,,30.7,,,,No results yet,2022: Wes Moore +30.7,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24510,Baltimore City,Baltimore City,39.3,-76.61,Wes Moore,Dan Cox,88.11,,79.55,,,,No results yet,2022: Wes Moore +79.5,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24009,Calvert,Calvert County,38.53,-76.53,Wes Moore,Dan Cox,44.59,,-7.75,,,,No results yet,2022: Dan Cox +7.8,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24011,Caroline,Caroline County,38.87,-75.83,Wes Moore,Dan Cox,32.13,,-31.89,,,,No results yet,2022: Dan Cox +31.9,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24013,Carroll,Carroll County,39.56,-77.02,Wes Moore,Dan Cox,39.11,,-17.48,,,,No results yet,2022: Dan Cox +17.5,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24015,Cecil,Cecil County,39.56,-75.94,Wes Moore,Dan Cox,36.27,,-23.83,,,,No results yet,2022: Dan Cox +23.8,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24017,Charles,Charles County,38.47,-77.02,Wes Moore,Dan Cox,68.55,,39.51,,,,No results yet,2022: Wes Moore +39.5,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24019,Dorchester,Dorchester County,38.43,-76.05,Wes Moore,Dan Cox,41.02,,-14.47,,,,No results yet,2022: Dan Cox +14.5,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24021,Frederick,Frederick County,39.47,-77.4,Wes Moore,Dan Cox,53.46,,10.27,,,,No results yet,2022: Wes Moore +10.3,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24023,Garrett,Garrett County,39.53,-79.27,Wes Moore,Dan Cox,22.18,,-51.96,,,,No results yet,2022: Dan Cox +52.0,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24025,Harford,Harford County,39.54,-76.3,Wes Moore,Dan Cox,43.76,,-8.45,,,,No results yet,2022: Dan Cox +8.4,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24027,Howard,Howard County,39.25,-76.93,Wes Moore,Dan Cox,69.87,,43.38,,,,No results yet,2022: Wes Moore +43.4,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24029,Kent,Kent County,39.24,-76.1,Wes Moore,Dan Cox,51.92,,7.13,,,,No results yet,2022: Wes Moore +7.1,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24031,Montgomery,Montgomery County,39.14,-77.2,Wes Moore,Dan Cox,78.36,,59.57,,,,No results yet,2022: Wes Moore +59.6,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24033,Prince George's,Prince George's County,38.83,-76.85,Wes Moore,Dan Cox,89.23,,80.91,,,,No results yet,2022: Wes Moore +80.9,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24035,Queen Anne's,Queen Anne's County,39.04,-76.08,Wes Moore,Dan Cox,38.92,,-18.39,,,,No results yet,2022: Dan Cox +18.4,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24037,St. Mary's,St. Mary's County,38.3,-76.61,Wes Moore,Dan Cox,39.94,,-16.16,,,,No results yet,2022: Dan Cox +16.2,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24039,Somerset,Somerset County,38.08,-75.85,Wes Moore,Dan Cox,36.48,,-23.97,,,,No results yet,2022: Dan Cox +24.0,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24041,Talbot,Talbot County,38.75,-76.18,Wes Moore,Dan Cox,51.66,,6.69,,,,No results yet,2022: Wes Moore +6.7,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24043,Washington,Washington County,39.6,-77.81,Wes Moore,Dan Cox,38.33,,-20.1,,,,No results yet,2022: Dan Cox +20.1,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24045,Wicomico,Wicomico County,38.37,-75.63,Wes Moore,Dan Cox,45.79,,-4.92,,,,No results yet,2022: Dan Cox +4.9,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
+24047,Worcester,Worcester County,38.22,-75.33,Wes Moore,Dan Cox,38.64,,-20.04,,,,No results yet,2022: Dan Cox +20.0,2026: No results yet,No results yet,#555555,,,,11/02/2026 04:39:30 PM,0,1979
