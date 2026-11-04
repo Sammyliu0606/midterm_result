@@ -1,25 +1,25 @@
 fips,county,county_full,for_votes,against_votes,total_votes,for_pct,against_pct,margin,leader,for_votes_display,for_pct_display,against_votes_display,against_pct_display,margin_display,margin_color,for_share_display,winner,winner_pct,winner_pct_display,winner_bin,winner_display,last_refreshed,precincts_reported,precincts_total
-24001,Allegany,Allegany County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24003,Anne Arundel,Anne Arundel County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24005,Baltimore County,Baltimore County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24009,Calvert,Calvert County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24011,Caroline,Caroline County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24013,Carroll,Carroll County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24015,Cecil,Cecil County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24017,Charles,Charles County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24019,Dorchester,Dorchester County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24021,Frederick,Frederick County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24023,Garrett,Garrett County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24025,Harford,Harford County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24027,Howard,Howard County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24029,Kent,Kent County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24031,Montgomery,Montgomery County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24033,Prince George's,Prince George's County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24035,Queen Anne's,Queen Anne's County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24037,St. Mary's,St. Mary's County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24039,Somerset,Somerset County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24041,Talbot,Talbot County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24043,Washington,Washington County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24045,Wicomico,Wicomico County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24047,Worcester,Worcester County,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
-24510,Baltimore City,Baltimore City,,,0.0,,,,No results yet,,,,,No results yet,#555555,No results yet,,,,No results yet,No results yet,11/03/2026 04:24:46 PM,0,1979
+24001,Allegany,Allegany County,6294.0,5300.0,11594.0,54.29,45.71,8.58,For,"6,294",54.3%,"5,300",45.7%,For +8.6,#77BB41,For: 54.3%,For,54.29,54.3%,For 50-60%,For won with 54.3%,11/03/2026 09:21:58 PM,306,1979
+24003,Anne Arundel,Anne Arundel County,58350.0,29325.0,87675.0,66.55,33.45,33.1,For,"58,350",66.5%,"29,325",33.5%,For +33.1,#77BB41,For: 66.5%,For,66.55,66.5%,For 60-70%,For won with 66.5%,11/03/2026 09:21:58 PM,306,1979
+24005,Baltimore County,Baltimore County,71023.0,33764.0,104787.0,67.78,32.22,35.56,For,"71,023",67.8%,"33,764",32.2%,For +35.6,#77BB41,For: 67.8%,For,67.78,67.8%,For 60-70%,For won with 67.8%,11/03/2026 09:21:58 PM,306,1979
+24009,Calvert,Calvert County,8432.0,7034.0,15466.0,54.52,45.48,9.04,For,"8,432",54.5%,"7,034",45.5%,For +9.0,#77BB41,For: 54.5%,For,54.52,54.5%,For 50-60%,For won with 54.5%,11/03/2026 09:21:58 PM,306,1979
+24011,Caroline,Caroline County,4543.0,4980.0,9523.0,47.71,52.29,-4.58,Against,"4,543",47.7%,"4,980",52.3%,Against +4.6,#FF9300,For: 47.7%,Against,52.29,52.3%,Against 50-60%,Against won with 52.3%,11/03/2026 09:21:58 PM,306,1979
+24013,Carroll,Carroll County,20912.0,21370.0,42282.0,49.46,50.54,-1.08,Against,"20,912",49.5%,"21,370",50.5%,Against +1.1,#FF9300,For: 49.5%,Against,50.54,50.5%,Against 50-60%,Against won with 50.5%,11/03/2026 09:21:58 PM,306,1979
+24015,Cecil,Cecil County,4463.0,4304.0,8767.0,50.91,49.09,1.82,For,"4,463",50.9%,"4,304",49.1%,For +1.8,#77BB41,For: 50.9%,For,50.91,50.9%,For 50-60%,For won with 50.9%,11/03/2026 09:21:58 PM,306,1979
+24017,Charles,Charles County,27103.0,12956.0,40059.0,67.66,32.34,35.32,For,"27,103",67.7%,"12,956",32.3%,For +35.3,#77BB41,For: 67.7%,For,67.66,67.7%,For 60-70%,For won with 67.7%,11/03/2026 09:21:58 PM,306,1979
+24019,Dorchester,Dorchester County,2572.0,2196.0,4768.0,53.94,46.06,7.88,For,"2,572",53.9%,"2,196",46.1%,For +7.9,#77BB41,For: 53.9%,For,53.94,53.9%,For 50-60%,For won with 53.9%,11/03/2026 09:21:58 PM,306,1979
+24021,Frederick,Frederick County,21920.0,11739.0,33659.0,65.12,34.88,30.24,For,"21,920",65.1%,"11,739",34.9%,For +30.2,#77BB41,For: 65.1%,For,65.12,65.1%,For 60-70%,For won with 65.1%,11/03/2026 09:21:58 PM,306,1979
+24023,Garrett,Garrett County,1879.0,2258.0,4137.0,45.42,54.58,-9.16,Against,"1,879",45.4%,"2,258",54.6%,Against +9.2,#FF9300,For: 45.4%,Against,54.58,54.6%,Against 50-60%,Against won with 54.6%,11/03/2026 09:21:58 PM,306,1979
+24025,Harford,Harford County,36844.0,33198.0,70042.0,52.6,47.4,5.2,For,"36,844",52.6%,"33,198",47.4%,For +5.2,#77BB41,For: 52.6%,For,52.6,52.6%,For 50-60%,For won with 52.6%,11/03/2026 09:21:58 PM,306,1979
+24027,Howard,Howard County,38863.0,14204.0,53067.0,73.23,26.77,46.46,For,"38,863",73.2%,"14,204",26.8%,For +46.5,#77BB41,For: 73.2%,For,73.23,73.2%,For 70-80%,For won with 73.2%,11/03/2026 09:21:58 PM,306,1979
+24029,Kent,Kent County,1523.0,836.0,2359.0,64.56,35.44,29.12,For,"1,523",64.6%,836,35.4%,For +29.1,#77BB41,For: 64.6%,For,64.56,64.6%,For 60-70%,For won with 64.6%,11/03/2026 09:21:58 PM,306,1979
+24031,Montgomery,Montgomery County,117657.0,30205.0,147862.0,79.57,20.43,59.14,For,"117,657",79.6%,"30,205",20.4%,For +59.1,#77BB41,For: 79.6%,For,79.57,79.6%,For 70-80%,For won with 79.6%,11/03/2026 09:21:58 PM,306,1979
+24033,Prince George's,Prince George's County,100094.0,19288.0,119382.0,83.84,16.16,67.68,For,"100,094",83.8%,"19,288",16.2%,For +67.7,#77BB41,For: 83.8%,For,83.84,83.8%,For 80%+,For won with 83.8%,11/03/2026 09:21:58 PM,306,1979
+24035,Queen Anne's,Queen Anne's County,9632.0,10100.0,19732.0,48.81,51.19,-2.38,Against,"9,632",48.8%,"10,100",51.2%,Against +2.4,#FF9300,For: 48.8%,Against,51.19,51.2%,Against 50-60%,Against won with 51.2%,11/03/2026 09:21:58 PM,306,1979
+24037,St. Mary's,St. Mary's County,10929.0,9784.0,20713.0,52.76,47.24,5.52,For,"10,929",52.8%,"9,784",47.2%,For +5.5,#77BB41,For: 52.8%,For,52.76,52.8%,For 50-60%,For won with 52.8%,11/03/2026 09:21:58 PM,306,1979
+24039,Somerset,Somerset County,1878.0,1770.0,3648.0,51.48,48.52,2.96,For,"1,878",51.5%,"1,770",48.5%,For +3.0,#77BB41,For: 51.5%,For,51.48,51.5%,For 50-60%,For won with 51.5%,11/03/2026 09:21:58 PM,306,1979
+24041,Talbot,Talbot County,6855.0,5582.0,12437.0,55.12,44.88,10.24,For,"6,855",55.1%,"5,582",44.9%,For +10.2,#77BB41,For: 55.1%,For,55.12,55.1%,For 50-60%,For won with 55.1%,11/03/2026 09:21:58 PM,306,1979
+24043,Washington,Washington County,13907.0,8937.0,22844.0,60.88,39.12,21.76,For,"13,907",60.9%,"8,937",39.1%,For +21.8,#77BB41,For: 60.9%,For,60.88,60.9%,For 60-70%,For won with 60.9%,11/03/2026 09:21:58 PM,306,1979
+24045,Wicomico,Wicomico County,13703.0,10139.0,23842.0,57.47,42.53,14.94,For,"13,703",57.5%,"10,139",42.5%,For +14.9,#77BB41,For: 57.5%,For,57.47,57.5%,For 50-60%,For won with 57.5%,11/03/2026 09:21:58 PM,306,1979
+24047,Worcester,Worcester County,3726.0,3432.0,7158.0,52.05,47.95,4.1,For,"3,726",52.0%,"3,432",48.0%,For +4.1,#77BB41,For: 52.0%,For,52.05,52.0%,For 50-60%,For won with 52.0%,11/03/2026 09:21:58 PM,306,1979
+24510,Baltimore City,Baltimore City,31258.0,7361.0,38619.0,80.94,19.06,61.88,For,"31,258",80.9%,"7,361",19.1%,For +61.9,#77BB41,For: 80.9%,For,80.94,80.9%,For 80%+,For won with 80.9%,11/03/2026 09:21:58 PM,306,1979

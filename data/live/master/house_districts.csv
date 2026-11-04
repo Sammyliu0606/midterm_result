@@ -1,31 +1,31 @@
 district,candidate,party,write_in,early_voting,election_day,mail_in,provisional,votes,pct_sbe,pct,last_refreshed,precincts_reported,precincts_total
-1,Dan Schwartz,Democratic,False,,,,,,,,11/03/2026 04:24:46 PM,0,309
-1,Andy Harris,Republican,False,,,,,,,,11/03/2026 04:24:46 PM,0,309
-1,Edward Shlikas,Unaffiliated,True,,,,,,,,11/03/2026 04:24:46 PM,0,309
-1,Other Write-Ins,,True,,,,,,,,11/03/2026 04:24:46 PM,0,309
-2,"John ""Johnny O"" Olszewski, Jr.",Democratic,False,,,,,,,,11/03/2026 04:24:46 PM,0,241
-2,Dave Wallace,Republican,False,,,,,,,,11/03/2026 04:24:46 PM,0,241
-2,Other Write-Ins,,True,,,,,,,,11/03/2026 04:24:46 PM,0,241
-3,Sarah Elfreth,Democratic,False,,,,,,,,11/03/2026 04:24:46 PM,0,214
-3,Berney Flowers,Republican,False,,,,,,,,11/03/2026 04:24:46 PM,0,214
-3,Robert L. Coffman,Republican,True,,,,,,,,11/03/2026 04:24:46 PM,0,214
-3,Other Write-Ins,,True,,,,,,,,11/03/2026 04:24:46 PM,0,214
-4,Glenn F. Ivey,Democratic,False,,,,,,,,11/03/2026 04:24:46 PM,0,237
-4,George E. McDermott,Republican,False,,,,,,,,11/03/2026 04:24:46 PM,0,237
-4,Sam Husseini,Green,False,,,,,,,,11/03/2026 04:24:46 PM,0,237
-4,Other Write-Ins,,True,,,,,,,,11/03/2026 04:24:46 PM,0,237
-5,Adrian Boafo,Democratic,False,,,,,,,,11/03/2026 04:24:46 PM,0,227
-5,Chris Chaffee,Republican,False,,,,,,,,11/03/2026 04:24:46 PM,0,227
-5,Mildred Marie Hall,Other Candidates,True,,,,,,,,11/03/2026 04:24:46 PM,0,227
-5,Other Write-Ins,,True,,,,,,,,11/03/2026 04:24:46 PM,0,227
-6,April McClain Delaney,Democratic,False,,,,,,,,11/03/2026 04:24:46 PM,0,214
-6,Robin Ficker,Republican,False,,,,,,,,11/03/2026 04:24:46 PM,0,214
-6,Moshe Y. Landman,Green,False,,,,,,,,11/03/2026 04:24:46 PM,0,214
-6,Other Write-Ins,,True,,,,,,,,11/03/2026 04:24:46 PM,0,214
-7,Kweisi Mfume,Democratic,False,,,,,,,,11/03/2026 04:24:46 PM,0,338
-7,Scott M. Collier,Republican,False,,,,,,,,11/03/2026 04:24:46 PM,0,338
-7,Other Write-Ins,,True,,,,,,,,11/03/2026 04:24:46 PM,0,338
-8,Jamie Raskin,Democratic,False,,,,,,,,11/03/2026 04:24:46 PM,0,199
-8,Cheryl Riley,Republican,False,,,,,,,,11/03/2026 04:24:46 PM,0,199
-8,Nancy Wallace,Green,False,,,,,,,,11/03/2026 04:24:46 PM,0,199
-8,Other Write-Ins,,True,,,,,,,,11/03/2026 04:24:46 PM,0,199
+1,Dan Schwartz,Democratic,False,44579,29384,8407,,82370,44.99,44.99,11/03/2026 09:21:58 PM,141,309
+1,Andy Harris,Republican,False,46267,50074,4054,,100395,54.84,54.84,11/03/2026 09:21:58 PM,141,309
+1,Edward Shlikas,Unaffiliated,True,0,0,0,,0,0.0,0.0,11/03/2026 09:21:58 PM,141,309
+1,Other Write-Ins,,True,128,177,11,,316,0.17,0.17,11/03/2026 09:21:58 PM,141,309
+2,"John ""Johnny O"" Olszewski, Jr.",Democratic,False,45882,11613,16497,,73992,61.57,61.57,11/03/2026 09:21:58 PM,42,241
+2,Dave Wallace,Republican,False,24998,15898,5081,,45977,38.26,38.26,11/03/2026 09:21:58 PM,42,241
+2,Other Write-Ins,,True,107,39,62,,208,0.17,0.17,11/03/2026 09:21:58 PM,42,241
+3,Sarah Elfreth,Democratic,False,57545,4832,26511,,88888,72.26,72.26,11/03/2026 09:21:58 PM,7,214
+3,Berney Flowers,Republican,False,25160,2232,6444,,33836,27.51,27.51,11/03/2026 09:21:58 PM,7,214
+3,Robert L. Coffman,Republican,True,0,0,0,,0,0.0,0.0,11/03/2026 09:21:58 PM,7,214
+3,Other Write-Ins,,True,189,25,78,,292,0.24,0.24,11/03/2026 09:21:58 PM,7,214
+4,Glenn F. Ivey,Democratic,False,54990,3534,15984,,74508,91.9,91.9,11/03/2026 09:21:58 PM,16,237
+4,George E. McDermott,Republican,False,2669,304,847,,3820,4.71,4.71,11/03/2026 09:21:58 PM,16,237
+4,Sam Husseini,Green,False,2079,204,357,,2640,3.26,3.26,11/03/2026 09:21:58 PM,16,237
+4,Other Write-Ins,,True,89,2,13,,104,0.13,0.13,11/03/2026 09:21:58 PM,16,237
+5,Adrian Boafo,Democratic,False,78271,13049,20292,,111612,71.3,71.3,11/03/2026 09:21:58 PM,35,227
+5,Chris Chaffee,Republican,False,29083,10133,4627,,43843,28.01,28.01,11/03/2026 09:21:58 PM,35,227
+5,Mildred Marie Hall,Other Candidates,True,0,0,0,,0,0.0,0.0,11/03/2026 09:21:58 PM,35,227
+5,Other Write-Ins,,True,819,95,174,,1088,0.7,0.7,11/03/2026 09:21:58 PM,35,227
+6,April McClain Delaney,Democratic,False,41162,4219,19774,,65155,61.2,61.2,11/03/2026 09:21:58 PM,28,214
+6,Robin Ficker,Republican,False,24192,9147,5337,,38676,36.33,36.33,11/03/2026 09:21:58 PM,28,214
+6,Moshe Y. Landman,Green,False,1426,371,597,,2394,2.25,2.25,11/03/2026 09:21:58 PM,28,214
+6,Other Write-Ins,,True,134,25,87,,246,0.23,0.23,11/03/2026 09:21:58 PM,28,214
+7,Kweisi Mfume,Democratic,False,41485,3970,7497,,52952,83.21,83.21,11/03/2026 09:21:58 PM,17,338
+7,Scott M. Collier,Republican,False,6719,2513,1224,,10456,16.43,16.43,11/03/2026 09:21:58 PM,17,338
+7,Other Write-Ins,,True,176,22,28,,226,0.36,0.36,11/03/2026 09:21:58 PM,17,338
+8,Jamie Raskin,Democratic,False,59498,7360,40617,,107475,86.06,86.06,11/03/2026 09:21:58 PM,20,199
+8,Cheryl Riley,Republican,False,8856,2443,4232,,15531,12.44,12.44,11/03/2026 09:21:58 PM,20,199
+8,Nancy Wallace,Green,False,902,241,544,,1687,1.35,1.35,11/03/2026 09:21:58 PM,20,199
+8,Other Write-Ins,,True,111,16,61,,188,0.15,0.15,11/03/2026 09:21:58 PM,20,199
