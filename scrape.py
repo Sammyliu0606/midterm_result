@@ -10,11 +10,11 @@ Writes:
   <out>/master/   tidy "source of truth" CSVs
   <out>/flourish/ wide, Flourish-ready CSVs
 
-Usage (2022 archive test; writes to data/live):
+Usage (2026 election night; writes to data/live):
   python scrape.py
 
-Usage (2026 election night):
-  python scrape.py --base-url https://elections.maryland.gov/elections/2026/general_results/
+Usage (2022 archive test):
+  python scrape.py --base-url https://elections.maryland.gov/elections/archive/2022/general_results/
 
 Output always goes to data/live/ (unless --out is given), so Flourish links never
 change when you switch from the 2022 test to 2026. The 2022 county baseline for the
@@ -45,7 +45,7 @@ from bs4 import BeautifulSoup
 # --------------------------------------------------------------------------
 # Settings (all can be overridden on the command line)
 # --------------------------------------------------------------------------
-DEFAULT_BASE_URL = "https://elections.maryland.gov/elections/archive/2022/general_results/"
+DEFAULT_BASE_URL = "https://results.elections.maryland.gov/elections/2026/General_results/"
 DEFAULT_INDEX = "index.html"
 DEFAULT_QUESTIONS = "1,2,3"
 DEFAULT_DISTRICTS = 8
