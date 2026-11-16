@@ -1,6 +1,6 @@
 candidate,governor,party,write_in,early_voting,election_day,mail_in,provisional,votes,pct_sbe,pct,last_refreshed,precincts_reported,precincts_total
-Wes Moore and Aruna Miller,Wes Moore,Democratic,False,403895,618083,372116,43555,1437649,64.94,64.94,11/15/2026 08:33:05 PM,1979,1979
-Dan Cox and Rob Krop,Dan Cox,Republican,False,173867,410392,83067,12480,679806,30.71,30.71,11/15/2026 08:33:05 PM,1979,1979
-Andy Ellis and Owen Silverman Andrews,Andy Ellis,Green,False,9674,25724,10411,1805,47614,2.15,2.15,11/15/2026 08:33:05 PM,1979,1979
-Cathy White and Cathy Permut,Cathy White,Working Class Party,False,10212,23647,7460,1604,42923,1.94,1.94,11/15/2026 08:33:05 PM,1979,1979
-Other Write-Ins,Other Write-Ins,,True,1341,2933,1448,132,5854,0.26,0.26,11/15/2026 08:33:05 PM,1979,1979
+Wes Moore and Aruna Miller,Wes Moore,Democratic,False,403895,618083,372250,44084,1438312,64.94,64.94,11/16/2026 03:22:42 PM,1979,1979
+Dan Cox and Rob Krop,Dan Cox,Republican,False,173867,410392,83104,12615,679978,30.7,30.7,11/16/2026 03:22:42 PM,1979,1979
+Andy Ellis and Owen Silverman Andrews,Andy Ellis,Green,False,9674,25724,10418,1825,47641,2.15,2.15,11/16/2026 03:22:42 PM,1979,1979
+Cathy White and Cathy Permut,Cathy White,Working Class Party,False,10212,23647,7462,1623,42944,1.94,1.94,11/16/2026 03:22:42 PM,1979,1979
+Other Write-Ins,Other Write-Ins,,True,1341,2933,1449,136,5859,0.26,0.26,11/16/2026 03:22:42 PM,1979,1979
